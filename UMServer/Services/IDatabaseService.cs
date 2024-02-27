@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LicenseService.Services
+namespace UMServer.Services
 {
 	public interface IDatabaseService
 	{

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LicenseService.Services
+namespace UMServer.Services
 {
 	public class LicenseDatabaseService : DatabaseService
 	{		
@@ -17,6 +17,7 @@ namespace LicenseService.Services
 				new List<object>() { 102, 180, 25, "6 months subscription" },
 				new List<object>() { 103, 365, 50, "1 year subscription" }
 			};
+
 			InsertRows(Constants.PLANS_TABLE, planData);
 		}
 

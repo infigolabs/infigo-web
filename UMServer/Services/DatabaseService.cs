@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 
-namespace LicenseService.Services
+namespace UMServer.Services
 {
 	public abstract class DatabaseService : IDatabaseService
 	{
@@ -17,7 +17,12 @@ namespace LicenseService.Services
 			if (string.IsNullOrWhiteSpace(DatabaseFile))
 				throw new Exception("Invalid database file");
 
-			mDatabaseFilePath = Path.Combine(Configuration.ApplicationDataPath, DatabaseFile);
+			if (!Directory.Exists(Configuration.DatabaseLocation))
+			{
+				Directory.CreateDirectory(Configuration.DatabaseLocation);
+			}
+
+			mDatabaseFilePath = Path.Combine(Configuration.DatabaseLocation, DatabaseFile);
 
 			mConnection = new SqliteConnection($"Data Source={mDatabaseFilePath}");
 

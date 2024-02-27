@@ -1,12 +1,12 @@
-﻿using LicenseService.Payloads;
+﻿using UMServer.Payloads;
 
-namespace LicenseService.Services
+namespace UMServer.Services
 {
 	public interface IAccountService
 	{
 		ApiResult StartTrial(TrialMetadata trialMetadata);
 		ApiResult GetAccountInfo(string userid);
-		ApiResult Register(string userid, string planId, string email, string name);
+		ApiResult Register(RegistrationMetadata registerMetadata);
 		ApiResult Validate(string userid, string licenseKey);
 	}
 }

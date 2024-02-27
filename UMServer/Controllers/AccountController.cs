@@ -1,8 +1,8 @@
-﻿using LicenseService.Payloads;
-using LicenseService.Services;
+﻿using UMServer.Payloads;
+using UMServer.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LicenseService.Controllers
+namespace UMServer.Controllers
 {
 	[ApiController]
 	[Route("[controller]")]
@@ -30,9 +30,9 @@ namespace LicenseService.Controllers
 		}
 
 		[HttpPost("register")]
-		public bool Register([FromBody] RegistrationMetadata registrationMetadata)
+		public string Register([FromBody] RegistrationMetadata registrationMetadata)
 		{
-			var result = mAccountService.Register();
+			var result = mAccountService.Register(registrationMetadata);
 			return Newtonsoft.Json.JsonConvert.SerializeObject(result);
 		}
 

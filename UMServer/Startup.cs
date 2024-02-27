@@ -1,4 +1,4 @@
-using LicenseService.Services;
+using UMServer.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LicenseService
+namespace UMServer
 {
 	public class Startup
 	{
@@ -33,7 +33,7 @@ namespace LicenseService
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
 			{
-				c.SwaggerDoc("v1", new OpenApiInfo { Title = "LicenseService", Version = "v1" });
+				c.SwaggerDoc("v1", new OpenApiInfo { Title = "UMServer", Version = "v1" });
 			});
 
 			services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
@@ -49,7 +49,7 @@ namespace LicenseService
 			{
 				app.UseDeveloperExceptionPage();
 				app.UseSwagger();
-				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LicenseService v1"));
+				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "UMServer v1"));
 			}
 
 			app.ApplicationServices.GetService<IDatabaseService>()?.Initialize();

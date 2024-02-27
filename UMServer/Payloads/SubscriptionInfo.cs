@@ -1,4 +1,4 @@
-﻿namespace LicenseService.Payloads
+﻿namespace UMServer.Payloads
 {
 	public class UserMetadata
 	{

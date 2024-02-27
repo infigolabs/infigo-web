@@ -1,4 +1,4 @@
-﻿namespace LicenseService
+﻿namespace UMServer
 {
 	public class Constants
 	{

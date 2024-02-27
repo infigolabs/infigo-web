@@ -1,9 +1,9 @@
-﻿using LicenseService.Payloads;
+﻿using UMServer.Payloads;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
-namespace LicenseService.Services
+namespace UMServer.Services
 {
 	public class AccountService : IAccountService
 	{

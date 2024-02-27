@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.IO;
 
-namespace LicenseService
+namespace UMServer
 {
 	public class Logger
 	{
