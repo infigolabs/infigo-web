@@ -1,0 +1,2288 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+/*
+Theme Name:     Cybersafe
+Theme URI:      
+Author:         
+Author URI:     
+Description:    
+Version:        1.0
+License:        
+License URI:    
+
+
+	Navigation Files
+
+	01. Reset
+	02. Global Style
+
+	    [Table of Content]
+
+	01. index Page Style
+        section index Page
+            1.1. Header section
+            1.2. hero section
+            1.3. feature card section
+            1.4. About Us section
+            1.5. Our Clients section
+            1.6. Why Choose Us section
+            1.7. Our Services section
+            1.8. How We Work section
+            1.9. Pricing Plan section
+            1.10. CTA section
+            1.11. Testimonials section
+            1.12. Blogs section
+            1.13. Footer section
+    02. About us Page Style
+        section About us Page
+            2.1. hero section
+            2.2. Our Vision section
+            2.3. Counter section
+            2.4. About section
+    03. Service Page Style
+        section Service Page
+            3.1. hero section
+            3.2. FAQ section
+    04. Pricing plan Page Style
+        section Pricing plan Page
+            4.1. hero section
+    05. Blog plan Page Style
+        section Blog plan Page
+            5.1. hero section
+    06. Contact us plan Page Style
+        section Contact us plan Page
+            6.1. hero section
+            6.2. Get In Touch With Us section
+    07. FAQ Page Style
+        section FAQ Page
+            7.1. hero section
+    08. Coming Soon/404 Page Style
+        section Coming Soon/404 Page
+            8.1. Coming Soon/404 section
+    09. Testimonial Page Style
+        section Testimonial Page
+            9.1. hero section
+ */
+
+
+/* ============= 01. Reset section ============= */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+}
+
+button:focus {
+    outline: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+label {
+    font-weight: normal;
+}
+
+iframe {
+    width: 100%;
+}
+
+
+/* =====  End of 01. Reset  ====== */
+
+
+/* ===== 02. Global Style ===== */
+
+h1 {
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 60px;
+}
+
+h2 {
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 41px;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+h4 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    text-transform: capitalize;
+}
+
+h5 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+h6 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+button {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    padding: 16px 38px 16px 38px;
+}
+
+a {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    padding: 16px 38px 16px 38px !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+
+/* button hover start */
+
+.btn_hover {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px;
+    border: 1.5px solid #d12bec;
+    color: #ffffff;
+    z-index: 1;
+}
+
+.btn_hover:hover {
+    color: #ffffff !important;
+}
+
+.btn_hover::before {
+    border-radius: 50px 50px 0 0;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.btn_hover:hover::before {
+    width: 100%;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+}
+
+.btn_hover::after {
+    border-radius: 0 0 50px 50px;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+}
+
+.btn_hover:hover::after {
+    width: 100%;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+}
+
+
+/* button hover end */
+
+
+/* animation icon */
+
+@keyframes icon {
+    0% {
+        top: 0px;
+    }
+    50% {
+        top: 10px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+
+/* button back to top */
+
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    padding: 17px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+
+/* =====  End of 02. Global style  ===== */
+
+
+/* ====== 1.1. Header section ====== */
+
+nav {
+    padding: 23px 0 !important;
+    z-index: 10;
+}
+
+nav img {
+    width: 100%;
+    filter: brightness(0) invert(1);
+}
+
+nav li a {
+    color: #ffffff !important;
+}
+
+nav li a.active {
+    color: #d12bec !important;
+    background-color: inherit !important;
+}
+
+nav li a:hover {
+    color: #d12bec !important;
+    transition: 500ms;
+}
+
+.header_home {
+    background: linear-gradient( 67.94deg, #030b20 -2.93%, #0d0d2a 44.88%, #230d2b 99.07%, #d12bec 148.49%);
+    position: relative;
+}
+
+nav .btn_hover a:hover {
+    color: #ffffff !important;
+}
+
+.navbar .nav-item .dropdown-menu {
+    display: none;
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+    display: block;
+    width: 220px;
+    padding: 15px 0px 15px 0px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    margin-left: -92px;
+}
+
+.dropdown-toggle::after {
+    vertical-align: middle;
+    content: "+";
+    border: none;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    color: white !important;
+    background-color: inherit;
+}
+
+.dropdown-menu a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: #000000 !important;
+}
+
+.dropdown-menu .dropdown-item::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    transition: all 0.3s ease-in;
+    background: #d12bec;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.dropdown-menu .dropdown-item:hover::before {
+    width: 100%;
+    background: #d12bec;
+}
+
+.navbar-toggler {
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    padding: 10px 20px;
+    color: #ffffff;
+    border: 1.5px solid #d12bec;
+    border-radius: 0.25rem;
+}
+
+.navbar-toggler:hover {
+    background: inherit;
+}
+
+aside {
+    background-color: inherit;
+    background-color: #070b24;
+    z-index: 10;
+}
+
+.sidebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.sidebar img {
+    width: 100%;
+}
+
+.sidebar button {
+    width: 44px;
+    height: 35px;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    padding: 7px 12px 10px 12px;
+    margin-bottom: -15px;
+    border-radius: 0.25em;
+    border: 1.5px solid #d12bec;
+    color: #ffffff;
+}
+
+.sidebar button:hover {
+    background: inherit;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+aside ul li {
+    margin: 5px 0;
+}
+
+aside li a {
+    color: #ffffff !important;
+    transition: 500ms;
+    padding: 10px 0 !important;
+}
+
+aside li a.active {
+    color: #d12bec !important;
+}
+
+aside li a:hover {
+    color: #d12bec !important;
+    transition: 500ms;
+}
+
+.dropdown-item:active {
+    background-color: white;
+}
+
+.collapse_btn {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.collapse_btn i {
+    border: 1px solid #ffffff;
+    padding: 7px 8px;
+    border-radius: 40px;
+}
+
+.collapse_btn i:hover {
+    border: 1px solid #d12bec;
+}
+
+.plus_collapse {
+    margin: -52px 0px 0 0;
+    height: 45px;
+}
+
+aside .pages {
+    font-weight: 500;
+    color: white;
+    margin: 11px 0 7px 0;
+}
+
+.sidepanel {
+    width: 320px;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: -320px;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 40px 20px 20px 20px;
+}
+
+.sidepanel::-webkit-scrollbar {
+    width: 3px;
+}
+
+.sidepanel::-webkit-scrollbar-thumb {
+    background: linear-gradient(66.75deg, #00A5CF 0.87%, #D12BEC 100%);
+    border-radius: 10px;
+}
+
+
+/* ====== End of 1.1. Header section ====== */
+
+
+/* ====== 1.2. hero section ====== */
+
+.header-cercle1 {
+    position: absolute;
+    width: 200px;
+    left: 250px;
+    top: 60px;
+}
+
+.header-cercle2 {
+    position: absolute;
+    width: 272px;
+    right: 22px;
+    top: 37rem;
+}
+
+.banner {
+    padding: 120px 0;
+    color: #ffffff;
+}
+
+.banner img[alt='banner'] {
+    width: 100%;
+}
+
+
+/* ====== End of 1.2. hero section ====== */
+
+
+/* ====== 1.3. feature card section ====== */
+
+.banner_card {
+    padding: 0px 0 100px 0;
+}
+
+.banner_card .container div {
+    color: #ffffff;
+    border: 1.5px solid #2b8cd580;
+    border-radius: 60px;
+    text-align: center;
+    width: 100%;
+    padding: 45px 40px 25px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 1;
+    height: 100%;
+    position: relative;
+}
+
+.banner_card .container div:hover {
+    box-shadow: 0px 6px 30px rgba(172, 172, 172, 0.3);
+}
+
+.banner_card img {
+    width: 85%;
+    transition: all 0.3s ease-in;
+}
+
+.banner_card img:hover {
+    position: relative;
+    animation: icon 0.5s 2;
+}
+
+.banner_card .container div:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.banner_card a i {
+    font-size: 15px;
+}
+
+.banner_card a {
+    transform: scale(0);
+    margin-top: -2px;
+    margin-bottom: -43px;
+    color: #ffffff;
+    padding: 13px 19px !important;
+    border: 1.5px solid #d12bec;
+    border-radius: 50%;
+}
+
+.banner_card .container div:hover a {
+    transform: scale(1);
+}
+
+.banner_card .container div::before {
+    border-radius: 60px 60px 0 0;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background: #d12bec;
+}
+
+.banner_card .container div:hover::before {
+    width: 100%;
+    background: #d12bec;
+}
+
+.banner_card .container div::after {
+    border-radius: 0 0 60px 60px;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+    background: #d12bec;
+}
+
+.banner_card .container div:hover::after {
+    width: 100%;
+    background: #d12bec;
+}
+
+
+/* ====== End of 1.3. feature card section ====== */
+
+
+/* ====== 1.4. About Us section ====== */
+
+.about {
+    margin: 100px 0;
+    position: relative;
+}
+
+.about h5 {
+    color: #d12bec;
+}
+
+.about h2 {
+    color: #000000;
+    margin: 10px 0;
+}
+
+.about p {
+    color: #000000;
+    padding-right: 30px;
+}
+
+.about h3 {
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.about a {
+    color: #d12bec;
+}
+
+.about .col-lg-3 h2 {
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn_hover2 {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px;
+    border: 1.5px solid #d12bec;
+    color: #ffffff !important;
+    z-index: 1;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+}
+
+.btn_hover2:hover {
+    color: #d12bec !important;
+}
+
+.btn_hover2::before {
+    border-radius: 50px 50px 0 0;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: #ffffff;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.btn_hover2:hover::before {
+    width: 100%;
+    background: #ffffff;
+}
+
+.btn_hover2::after {
+    border-radius: 0 0 50px 50px;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: #ffffff;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+}
+
+.btn_hover2:hover::after {
+    width: 100%;
+    background: #ffffff;
+}
+
+.ab-image {
+    width: 100%;
+}
+
+.about-cercle1 {
+    position: absolute;
+    width: 228px;
+    left: 400px;
+    top: -63px;
+}
+
+.about-cercle2 {
+    position: absolute;
+    width: 284px;
+    right: 0;
+    bottom: -105px;
+}
+
+
+/* ====== End of 1.4. About Us section ====== */
+
+
+/* ====== 1.5. Our Clients section ====== */
+
+.client {
+    margin-bottom: 100px;
+}
+
+.client h5 {
+    color: #d12bec;
+}
+
+.client h2 {
+    color: #000000;
+    padding: 10px 190px 35px 190px;
+}
+
+.client img {
+    width: 130px;
+}
+
+
+/* ====== End of 1.5. Our Clients section ====== */
+
+
+/* ====== 1.6. Why Choose Us section ====== */
+
+.choose {
+    background: linear-gradient( 67.94deg, #030b20 -2.93%, #0d0d2a 44.88%, #230d2b 99.07%, #d12bec 148.49%);
+    padding: 100px 0;
+    position: relative;
+}
+
+.choose h5 {
+    color: #d12bec;
+}
+
+.choose h2 {
+    color: #ffffff;
+}
+
+.choose p {
+    color: #ffffff;
+}
+
+.chose-cercle1 {
+    position: absolute;
+    width: 160px;
+    bottom: 97px;
+    left: 12px;
+}
+
+.chose-cercle2 {
+    position: absolute;
+    width: 160px;
+    right: 39px;
+    top: 263px;
+}
+
+.choose h3 {
+    color: #ffffff;
+}
+
+.choose2 {
+    background-color: #5c5cce85;
+    border-radius: 70px;
+    padding: 66px 36px;
+    width: 100%;
+}
+
+.choose2 img {
+    width: 70px;
+}
+
+.choose2 img:hover {
+    position: relative;
+    animation: icon 0.5s 2;
+}
+
+
+/* ====== End of 1.6. Why Choose Us section ====== */
+
+
+/* ====== 1.7.  Our Services section ====== */
+
+.services {
+    margin: 100px 0;
+    position: relative;
+}
+
+.services h5 {
+    color: #d12bec;
+}
+
+.services h2 {
+    color: #000000;
+    margin: 10px 0;
+    padding: 0 290px;
+}
+
+.services p {
+    color: #272727;
+}
+
+.service_card {
+    background: #ffffff;
+    border-radius: 60px;
+    z-index: 1;
+    color: #000000;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 45px 36px 25px 36px;
+    width: 100%;
+    border: 1.5px solid rgba(172, 172, 172, 1.25);
+    gap: 20px;
+}
+
+.service_card:hover {
+    box-shadow: 0px 6px 30px rgba(172, 172, 172, 0.3);
+}
+
+.service_card:hover.service_card h4 {
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.service_card:hover.service_card p {
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.service_card::before {
+    border-radius: 60px 60px 0 0;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: #d12bec;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.service_card:hover::before {
+    width: 100%;
+    background: #d12bec;
+}
+
+.service_card::after {
+    border-radius: 0 0 60px 60px;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: #d12bec;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+}
+
+.service_card:hover::after {
+    width: 100%;
+    background: #d12bec;
+}
+
+.service_card img {
+    width: 85%;
+    transition: all 0.3s ease;
+}
+
+.service_card img:hover {
+    position: relative;
+    animation: icon 0.5s 2;
+}
+
+.service_card:hover.service_card img {
+    filter: brightness(0) invert(1);
+}
+
+.service_card a i {
+    font-size: 15px;
+}
+
+.service_card a {
+    transform: scale(0);
+    margin-top: -2px;
+    margin-bottom: -43px;
+    color: #ffffff;
+    padding: 13px 19px !important;
+    border-radius: 50%;
+    border: 1.5px solid #d12bec;
+}
+
+.service_card:hover.service_card a {
+    transform: scale(1);
+}
+
+.service-cercle1 {
+    position: absolute;
+    width: 220px;
+    left: -103px;
+    bottom: 185px;
+}
+
+.service-cercle2 {
+    position: absolute;
+    width: 300px;
+    right: 0;
+    bottom: 300px;
+}
+
+.service-cercle3 {
+    position: absolute;
+    width: 300px;
+    left: 54%;
+    top: 72px;
+}
+
+.view_service {
+    color: #d12bec !important;
+}
+
+.view_service:hover {
+    color: #ffffff !important;
+}
+
+
+/* ====== End of 1.7.  Our Services section ====== */
+
+
+/* ====== 1.8. How We Work section ====== */
+
+.work {
+    margin: 100px 0;
+}
+
+.how-we-work {
+    width: 90%;
+    border-radius: 45px;
+    object-fit: cover;
+}
+
+.work a {
+    position: absolute;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    border-radius: 26px;
+    padding: 30px 44px !important;
+    bottom: -42px;
+    right: 0;
+}
+
+.work i {
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 10px 10px 10px 13px;
+    border-radius: 50%;
+    font-size: 22px;
+}
+
+.work h5 {
+    color: #d12bec;
+}
+
+.work h2 {
+    color: #000000;
+    margin: 10px 0;
+}
+
+.work p {
+    color: #000000;
+}
+
+.work .mt-4 {
+    background: #ffffff;
+    border: 1.5px solid #acacac;
+    border-radius: 40px;
+    padding: 35px 27px;
+    position: relative;
+    z-index: 1;
+}
+
+.work .mt-4:hover {
+    box-shadow: 0px 6px 30px rgba(172, 172, 172, 0.3);
+}
+
+.work h3 {
+    color: #000000;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.work .mt-4:hover h3 {
+    color: #ffffff;
+}
+
+.work .mt-4:hover p {
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.work .mt-4::before {
+    border-radius: 40px 40px 0 0;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: #d12bec;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.work .mt-4:hover::before {
+    width: 100%;
+    background: #d12bec;
+}
+
+.work .mt-4::after {
+    border-radius: 0 0 40px 40px;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: #d12bec;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+}
+
+.work .mt-4:hover::after {
+    width: 100%;
+    background: #d12bec;
+}
+
+.work .mt-4 h2 {
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.work .mt-4:hover h2 {
+    -webkit-text-fill-color: #ffffff;
+}
+
+.work-cercle1 {
+    position: absolute;
+    width: 244px;
+    left: 33%;
+    top: 0;
+    z-index: -1;
+}
+
+.work-cercle2 {
+    position: absolute;
+    width: 300px;
+    right: 0px;
+    bottom: 7%;
+    z-index: -1;
+}
+
+
+/* ====== End of 1.8. How We Work section ====== */
+
+
+/* ====== 1.9. Pricing Plan section ====== */
+
+.pricing_plan h5 {
+    color: #d12bec;
+    margin-bottom: 10px;
+}
+
+.pricing_plan h2 {
+    color: #000000;
+}
+
+.pricing_card {
+    color: #000000;
+    border: 1px solid #acacac;
+    background-color: #ffffff;
+    border-radius: 40px;
+    padding: 40px 30px;
+    width: 95%;
+}
+
+.pricing_card:hover {
+    box-shadow: 0px 6px 30px rgba(172, 172, 172, 0.3);
+}
+
+.pricing_card img {
+    width: 100%;
+}
+
+.pricing_card img:hover {
+    position: relative;
+    animation: icon 0.5s 2;
+}
+
+.pricing_card div:last-child {
+    margin: 45px auto 0 auto;
+}
+
+.pricing_card a {
+    color: #d12bec;
+}
+
+.pricing_card a:hover {
+    color: #ffffff;
+}
+
+.pricing_card i {
+    color: #18bd46;
+    border: 1.5px solid #18bd46;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.pricing-cercle {
+    position: absolute;
+    width: 300px;
+    z-index: -1;
+    left: 0;
+}
+
+
+/* ====== End of 1.9. Pricing Plan section ====== */
+
+
+/* ====== 1.10. CTA section ====== */
+
+.experience {
+    background-image: url("../Images/home/experience.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    color: #ffffff;
+    padding: 100px 300px;
+    margin: 100px 0;
+    width: 100%;
+}
+
+.get {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px;
+    border: 1.5px solid #d12bec;
+    color: #ffffff;
+    z-index: 1;
+}
+
+.get:hover {
+    color: #ffffff !important;
+}
+
+.get::before {
+    border-radius: 50px 50px 0 0;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.get:hover::before {
+    width: 0;
+}
+
+.get::after {
+    border-radius: 0 0 50px 50px;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+}
+
+.get:hover::after {
+    width: 0;
+}
+
+
+/* ====== End of 1.10. CTA section ====== */
+
+
+/* ====== 1.11. Testimonials section ====== */
+
+.serv-testimonial {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.testimonial h5 {
+    color: #d12bec;
+}
+
+.testimonial h2 {
+    color: #000000;
+    margin: 10px 0;
+}
+
+.testimonial p {
+    color: #000000;
+    padding: 0 302px;
+}
+
+.testimonial_card {
+    border: 1.5px solid #acacac;
+    background-color: #ffffff;
+    border-radius: 60px;
+    padding: 50px 40px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.testimonial_card:hover {
+    box-shadow: 0px 6px 30px rgba(172, 172, 172, 0.3);
+}
+
+.testimonial_card::before {
+    border-radius: 60px 60px 0 0;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: #d12bec;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.testimonial_card:hover::before {
+    width: 100%;
+    background: #d12bec;
+}
+
+.testimonial_card::after {
+    border-radius: 0 0 60px 60px;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: #d12bec;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+}
+
+.testimonial_card:hover::after {
+    width: 100%;
+    background: #d12bec;
+}
+
+.testimonial_card:hover.testimonial_card h4 {
+    color: #ffffff;
+}
+
+.testimonial_card:hover.testimonial_card p {
+    color: #ffffff;
+}
+
+.testimonial_card hr {
+    width: 165px;
+    height: 2px;
+    color: #ff9901;
+    opacity: 1;
+    margin: 20px 0 10px 0;
+}
+
+.testimonial_card img {
+    width: 110px;
+    border-radius: 20px;
+}
+
+.testimonial_card img:hover {
+    position: relative;
+    animation: icon 0.5s 2;
+}
+
+.testimonial_card p {
+    color: #000000;
+    transition: all 0.3s ease;
+}
+
+.testimonial_card h4 {
+    transition: all 0.3s ease;
+    color: #000000;
+}
+
+
+/* ====== End of 1.11. Testimonials section ====== */
+
+
+/* ====== 1.12. Blogs section ====== */
+
+.blog {
+    margin: 100px 0;
+    padding: 100px 0;
+    background: linear-gradient( 67.94deg, #030b20 -2.93%, #0d0d2a 44.88%, #230d2b 99.07%, #d12bec 148.49%);
+}
+
+.blog h5 {
+    color: #d12bec;
+    margin-bottom: 16px;
+}
+
+.blog h2 {
+    color: #ffffff;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 15px 20px 25px 20px;
+    width: 100%;
+}
+
+.blog .card img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
+    transition: all 0.3s ease;
+}
+
+.card:hover.card img {
+    transform: scale(1.05) rotate(2deg);
+    opacity: 0.8;
+}
+
+.card i {
+    font-size: 22px;
+    color: #000000;
+}
+
+.card a {
+    color: #000000;
+}
+
+.card h4 {
+    color: #000000;
+}
+
+.card p {
+    color: #000000;
+    margin: 20px 0 10px 0;
+}
+
+.card a:nth-child(5) {
+    color: #d12bec;
+}
+
+.card a:nth-child(5):hover {
+    color: #00a5cf;
+}
+
+
+/* ====== End of 1.12. Blogs section ====== */
+
+
+/* ====== 1.13. Footer section ====== */
+
+.ab-footer {
+    margin-top: 100px;
+}
+
+footer div:first-child h5 {
+    color: #d12bec;
+}
+
+footer {
+    position: relative;
+}
+
+footer h2 {
+    color: #000000;
+}
+
+footer .footer-para {
+    color: #000000;
+    padding: 0 330px;
+}
+
+footer form input {
+    width: 50%;
+    background-color: #ffffff;
+    border: 1.5px solid #308ad680;
+    border-radius: 60px;
+    padding-left: 30px;
+    outline: none;
+    color: #757575;
+}
+
+footer button {
+    border-radius: 50px;
+    border: 1.5px solid #d12bec;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+footer button::before {
+    border-radius: 50px 50px 0 0;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+footer button:hover::before {
+    width: 100%;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+}
+
+footer button::after {
+    border-radius: 0 0 50px 50px;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+}
+
+footer button:hover::after {
+    width: 100%;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+}
+
+footer form button i {
+    color: #d12bec;
+    font-size: 22px;
+    transition: all 0.3s ease;
+}
+
+footer form button:hover i {
+    color: #ffffff;
+}
+
+#footer-message {
+    display: none;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    color: white;
+    width: 50%;
+    height: 42%;
+    padding: 120px 0 120px 0;
+    font-size: 20px;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border-radius: 10px;
+}
+
+footer .col-lg-5 img {
+    width: 170px;
+    margin-bottom: 20px;
+    margin-top: -17px;
+}
+
+footer .row {
+    margin-top: 150px;
+}
+
+footer .col-lg-3 hr {
+    width: 120px;
+    position: absolute;
+    top: 93px;
+    right: -30px;
+    rotate: 90deg;
+    color: #000000;
+    opacity: 1;
+}
+
+footer .row p {
+    color: #000000;
+}
+
+footer .col-lg-5 span a {
+    background: #000000;
+    border-radius: 50%;
+    color: #ffffff;
+    padding: 9px 9px !important;
+}
+
+footer .col-lg-5 span a:first-child {
+    padding: 10px 15px 8px 14px !important;
+}
+
+footer .col-lg-5 span a:nth-child(2) {
+    padding: 10px 11px 8px 11px !important;
+}
+
+footer .col-lg-5 span a:nth-child(3) {
+    padding: 10px 10px 8px 11px !important;
+}
+
+footer .col-lg-5 span a:nth-child(4) {
+    padding: 10px 10px 8px 12px !important;
+}
+
+footer .col-lg-5 span a:nth-child(5) {
+    padding: 11px 13px 7px 13px !important;
+}
+
+footer .col-lg-5 span a:hover {
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+}
+
+footer .col-lg-5 span a i {
+    font-size: 22px;
+}
+
+footer .row h4 {
+    color: #202020;
+}
+
+footer .row .col-lg-3 a {
+    color: #000000;
+}
+
+footer .row .col-lg-3 a:hover {
+    color: #d12bec;
+}
+
+footer .col-lg-4 i {
+    font-size: 22px;
+    color: #d12bec;
+}
+
+footer .col-lg-4 i:hover {
+    color: #00a5cf;
+}
+
+footer hr {
+    color: #000000;
+    opacity: 1;
+}
+
+footer h6 {
+    color: #000000;
+}
+
+footer .footer-cercle1 {
+    position: absolute;
+    top: 52px;
+    width: 394px;
+    z-index: -1;
+    left: 14%;
+}
+
+.footer-cercle2 {
+    position: absolute;
+    width: 220px;
+    z-index: -1;
+    right: 0;
+}
+
+
+/* ====== End of 1.13. Footer section ====== */
+
+
+/* ====== 2.1. hero section ====== */
+
+.header_about {
+    background-image: url("../Images/about/banner_about.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 430px;
+}
+
+.banner_about {
+    padding: 210px 0 0 0;
+    color: #ffffff;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background-color: #030b2080;
+    height: 430px;
+}
+
+
+/* ====== End of 2.1. hero section ====== */
+
+
+/* ====== 2.2. Our Vision section ====== */
+
+.vision {
+    margin-bottom: 100px;
+}
+
+.vision img {
+    width: 100%;
+    border-radius: 40px;
+}
+
+.vision h5 {
+    color: #d12bec;
+}
+
+.vision h2 {
+    color: #000000;
+    margin: 6px 0 20px 0;
+}
+
+.vision p {
+    color: #000000;
+}
+
+.vision h3 {
+    color: #000000;
+    margin: 20px 0 10px 0;
+}
+
+.vision a {
+    color: #d12bec;
+}
+
+.vision a:hover {
+    color: #ffffff;
+}
+
+.vision .vision-cercle {
+    position: absolute;
+    right: 0;
+    z-index: -1;
+    top: -29%;
+    width: 300px;
+}
+
+
+/* ====== End of 2.2. Our Vision section ====== */
+
+
+/* ====== 2.3. Counter section ====== */
+
+.ab_counter img {
+    width: 50px;
+    margin-right: 25px;
+}
+
+.ab_counter img:hover {
+    position: relative;
+    animation: icon 0.5s 2;
+}
+
+.ab_counter {
+    color: #050505;
+}
+
+.ab_counter hr {
+    rotate: 90deg;
+    width: 70px;
+    opacity: 1;
+    margin: 0;
+}
+
+
+/* ====== End of 2.3. Counter section ====== */
+
+
+/* ====== 2.4. About section ====== */
+
+.ab-choose {
+    margin: 100px 0;
+}
+
+.ab-choose {
+    background: linear-gradient( 67.94deg, #030b20 -2.93%, #0d0d2a 44.88%, #230d2b 99.07%, #d12bec 148.49%);
+    padding: 100px 0;
+    position: relative;
+}
+
+.ab-choose h5 {
+    color: #d12bec;
+}
+
+.ab-choose h2 {
+    color: #ffffff;
+}
+
+.ab-choose p {
+    color: #ffffff;
+}
+
+.chose-cercle1 {
+    position: absolute;
+    width: 160px;
+    bottom: 97px;
+    left: 12px;
+}
+
+.chose-cercle2 {
+    position: absolute;
+    width: 160px;
+    right: 39px;
+    top: 263px;
+}
+
+.ab-choose h3 {
+    color: #ffffff;
+}
+
+.choose2 {
+    background-color: #5c5cce85;
+    border-radius: 70px;
+    padding: 66px 36px;
+    width: 100%;
+}
+
+.choose2 img {
+    width: 70px;
+}
+
+.choose2 img:hover {
+    position: relative;
+    animation: icon 0.5s 2;
+}
+
+
+/* ====== End of 2.4. About section ====== */
+
+
+/* ====== 3.1. hero section ====== */
+
+.header_service {
+    background-image: url("../Images/service/banner_service.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 430px;
+}
+
+.banner_service {
+    padding: 210px 0 0 0;
+    color: #ffffff;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background-color: #030b2080;
+    height: 430px;
+}
+
+
+/* ====== End of 3.1. hero section ====== */
+
+
+/* ====== 3.2. FAQ section ====== */
+
+.faq h5 {
+    color: #d12bec;
+}
+
+.faq h2 {
+    color: #000000;
+}
+
+.faq p {
+    color: #000000;
+}
+
+.faq img {
+    position: absolute;
+    width: 300px;
+    top: -45px;
+    z-index: -1;
+    right: 0;
+}
+
+div#accordionExample {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("../Images/icon/menus.png");
+    transform: rotate(-180deg);
+    margin-top: -15px;
+}
+
+.accordion-button::after {
+    background-image: url("../Images/icon/plus.png");
+    background-repeat: no-repeat;
+    transition: transform 0.2s ease-in-out;
+}
+
+.accordion-button:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.accordion-button {
+    background: #efefef;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    padding: 15px 18px 15px 25px;
+    color: #000000;
+    border-radius: 20px;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed {
+    border-radius: 20px;
+}
+
+.accordion-item:first-of-type .accordion-button.collapsed {
+    border-radius: 20px;
+}
+
+.accordion-item {
+    border-radius: 20px;
+    border: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    border-radius: 20px !important;
+    color: #ffffff;
+}
+
+
+/* ====== End of 3.2. FAQ section ====== */
+
+
+/* ====== 4.1. hero section ====== */
+
+.page-pricing {
+    margin-top: 100px;
+}
+
+.header_pricing {
+    background-image: url("../Images/pricing/banner_pricing.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 430px;
+}
+
+.banner_pricing {
+    padding: 210px 0 0 0;
+    color: #ffffff;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background-color: #030b2080;
+    height: 430px;
+}
+
+
+/* ====== End of 4.1. hero section ====== */
+
+
+/* ====== 5.1. hero section ====== */
+
+.header_blog {
+    background-image: url("../Images/blog/banner_blog.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 430px;
+}
+
+.banner_blog {
+    padding: 210px 0 0 0;
+    color: #ffffff;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background-color: #030b2080;
+    height: 430px;
+}
+
+.page_blog {
+    background: #ffffff;
+}
+
+.page_blog h2 {
+    color: #000000;
+}
+
+.page_blog p {
+    color: #000000;
+    margin-top: 10px;
+}
+
+
+/* ====== End of 5.1. hero section ====== */
+
+
+/* ====== 6.1. hero section ====== */
+
+.header_contact {
+    background-image: url("../Images/contact/banner_contact.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 430px;
+}
+
+.banner_contact {
+    padding: 210px 0 0 0;
+    color: #ffffff;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background-color: #030b2080;
+    height: 430px;
+}
+
+
+/* ====== End of 6.1. hero section ====== */
+
+
+/* ====== 6.2. Get In Touch With Us section ====== */
+
+.contact_page {
+    margin: 100px 0;
+}
+
+.mapouter {
+    position: relative;
+    width: 100%;
+    height: 535px;
+}
+
+.gmap_iframe {
+    height: 535px;
+    border-radius: 40px;
+}
+
+.contact_page h2 {
+    color: #262626;
+}
+
+.contact_page p {
+    color: #2d2d2d;
+    margin: 10px 0 30px 0;
+}
+
+#contact-message {
+    display: none;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    color: white;
+    width: 50%;
+    height: 42%;
+    padding: 120px 0 120px 0;
+    font-size: 20px;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border-radius: 10px;
+}
+
+.contact_page input,
+textarea {
+    background: #ffffff;
+    border: 1px solid #dadada;
+    border-radius: 30px;
+    width: 100%;
+    margin-bottom: 25px;
+    color: #d12bec;
+    padding: 16px;
+}
+
+.contact_page input:focus,
+textarea:focus {
+    outline: 1px solid #00a5cf;
+    color: #969696;
+}
+
+.contact_page form button {
+    border: 1.5px solid #00a5cf;
+    color: #00a5cf;
+    border-radius: 45px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.contact_page form button:hover {
+    color: #ffffff;
+}
+
+.contact_page form button::before {
+    border-radius: 50px 50px 0 0;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.contact_page form button:hover::before {
+    width: 100%;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+}
+
+.contact_page form button::after {
+    border-radius: 0 0 50px 50px;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 50%;
+    transition: all 0.3s ease-in;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+}
+
+.contact_page form button:hover::after {
+    width: 100%;
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+}
+
+.contact_page .contact-cercle1 {
+    position: absolute;
+    width: 300px;
+    top: -153px;
+    right: 0;
+    z-index: -1;
+}
+
+.contact_page .contact-cercle2 {
+    position: absolute;
+    width: 300px;
+    z-index: -1;
+    bottom: -50px;
+    right: 0;
+}
+
+
+/* ====== End of 6.2. Get In Touch With Us section ====== */
+
+
+/* ====== 7.1. hero section ====== */
+
+.page-faq {
+    margin-top: 100px;
+}
+
+.header_faq {
+    background-image: url("../Images/faq/banner_faq.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 430px;
+}
+
+.banner_faq {
+    padding: 210px 0 0 0;
+    color: #ffffff;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background-color: #030b2080;
+    height: 430px;
+}
+
+
+/* ====== End of 7.1. hero section ====== */
+
+
+/* ====== 8.1. Coming Soon/404 section ====== */
+
+.coming_soon {
+    background: linear-gradient( 67.94deg, #030b20 -2.93%, #0d0d2a 44.88%, #230d2b 99.07%, #d12bec 148.49%);
+    height: 100vh;
+    color: #ffffff;
+    text-align: center;
+}
+
+.coming_soon p {
+    padding: 0 313px;
+}
+
+.coming_soon img {
+    width: 135px;
+}
+
+.coming_soon img:hover {
+    position: relative;
+    animation: icon 0.5s 2;
+}
+
+.coming_soon_count h1 {
+    background: linear-gradient(66.75deg, #00a5cf 0.87%, #d12bec 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.coming_soon_count h6 {
+    color: #ffffff;
+}
+
+.coming_soon_count div {
+    width: 110px
+}
+
+
+/* ====== End of 8.1. Coming Soon/404 section ====== */
+
+
+/* ====== 9.1. hero section ====== */
+
+.header_testimonial {
+    background-image: url("../Images/testimonial/banner_testimonial.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 430px;
+}
+
+.banner_testimonial {
+    padding: 210px 0 0 0;
+    color: #ffffff;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background-color: #030b2080;
+    height: 430px;
+}
+
+.page_testimonial {
+    margin: 100px auto 100px auto;
+}
+
+
+/* ====== End of 9.1. hero section ====== */

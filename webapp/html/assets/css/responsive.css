@@ -1,0 +1,514 @@
+/* ====================== RESPONSIVE SETTINGS ====================== */
+
+
+/* =========== All page Responsive =============== */
+
+@media screen and (min-width: 1400px) {
+    /* ======== index.html ======== */
+    .banner_card .container div {
+        padding: 45px 70px 25px 70px;
+    }
+    .service_card {
+        padding: 45px 66px 25px 66px;
+    }
+}
+
+@media screen and (min-width: 1655px) {
+    /* ======== index.html ======== */
+    #footer-message {
+        padding: 158px 0 113px 0;
+    }
+}
+
+@media screen and (min-width: 2400px) {
+    /* ======== index.html ======== */
+    #footer-message {
+        padding: 192px 0 113px 0;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    /* ======== index.html ======== */
+    footer .footer-para {
+        padding: 0 212px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    /* ======== index.html ======== */
+    .banner_card .container div {
+        padding: 45px 15px 25px 15px;
+    }
+    .client h2 {
+        padding: 20px 5px 35px 5px;
+    }
+    .choose2 {
+        padding: 52px 19px 52px 25px;
+    }
+    .services h2 {
+        padding: 0 40px;
+    }
+    .service_card {
+        padding: 45px 20px 25px 20px;
+    }
+    .pricing_card {
+        padding: 40px 50px;
+        width: 70%;
+    }
+    .experience {
+        padding: 100px 20px;
+    }
+    .testimonial p {
+        padding: 0 60px;
+    }
+    .testimonial_card {
+        padding: 30px 20px;
+    }
+    .testimonial_card hr {
+        width: 142px;
+    }
+    .testimonial_card img {
+        width: 100px;
+    }
+    .serv-testimonial {
+        margin-top: 60px;
+    }
+    footer .footer-para {
+        padding: 0 84px;
+    }
+    footer .col-lg-3 hr {
+        display: none;
+    }
+    footer .row {
+        margin-top: 50px;
+    }
+    footer .col-lg-5 span a i {
+        font-size: 20px;
+    }
+    .ab-footer {
+        margin-top: 60px;
+    }
+    footer .footer-cercle1 {
+        width: 300px;
+    }
+    .footer-cercle2 {
+        width: 184px;
+    }
+    /* ======== about.html ======== */
+    .vision {
+        margin-bottom: 60px;
+    }
+    .choose2 {
+        padding: 52px 19px 52px 25px;
+    }
+    /* ======== coming soon & 404.html ======== */
+    .coming_soon p {
+        padding: 0 80px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* global style */
+    h1 {
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 46px;
+    }
+    h2 {
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 36px;
+    }
+    h3 {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 26px;
+    }
+    h4 {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 24px;
+    }
+    h5 {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 22px;
+    }
+    h6 {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+    }
+    p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+    button {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        padding: 14px 30px 14px 30px;
+    }
+    a {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        padding: 14px 30px 14px 30px !important;
+    }
+    /* ======== index.html ======== */
+    .banner {
+        padding: 80px 0;
+    }
+    .banner_card {
+        padding: 0px 0 60px 0;
+    }
+    .banner_card img {
+        width: 75%;
+    }
+    .about {
+        margin: 60px 0;
+    }
+    .client {
+        margin-bottom: 60px;
+    }
+    .client img {
+        width: 120px;
+    }
+    .choose {
+        padding: 60px 0;
+    }
+    .choose2 img {
+        width: 60px;
+    }
+    .ab-choose {
+        margin: 60px 0;
+    }
+    .services {
+        margin: 60px 0;
+    }
+    .service_card img {
+        width: 75%;
+    }
+    .work {
+        margin: 60px 0;
+    }
+    .how-we-work {
+        width: 100%;
+    }
+    .experience {
+        margin: 60px 0px;
+        padding: 60px 130px;
+    }
+    .blog {
+        margin: 60px 0;
+        padding: 60px 0;
+    }
+    .header_about {
+        height: 350px;
+    }
+    .banner_about {
+        padding: 160px 0 0 0;
+        height: 350px;
+    }
+    .ab-choose {
+        padding: 60px 0;
+        margin: 60px 0;
+    }
+    .choose2 img {
+        width: 60px;
+    }
+    /* ======== about.html ======== */
+    .ab_counter hr {
+        display: none;
+    }
+    .ab_counter img {
+        width: 45px;
+    }
+    /* ======== Service.html ======== */
+    .header_service {
+        height: 350px;
+    }
+    .banner_service {
+        padding: 160px 0 0 0;
+        height: 350px;
+    }
+    .accordion-button {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    /* ======== Pricing.html ======== */
+    .header_pricing {
+        height: 350px;
+    }
+    .banner_pricing {
+        padding: 160px 0 0 0;
+        height: 350px;
+    }
+    .page-pricing {
+        margin-top: 60px;
+    }
+    /* ======== blog.html ======== */
+    .header_blog {
+        height: 350px;
+    }
+    .banner_blog {
+        padding: 160px 0 0 0;
+        height: 350px;
+    }
+    /* ======== Contact.html ======== */
+    .contact_page {
+        margin: 60px 0;
+    }
+    .header_contact {
+        height: 350px;
+    }
+    .banner_contact {
+        padding: 160px 0 0 0;
+        height: 350px;
+    }
+    /* ======== FAQ.html ======== */
+    .header_faq {
+        height: 350px;
+    }
+    .banner_faq {
+        padding: 160px 0 0 0;
+        height: 350px;
+    }
+    .page-faq {
+        margin-top: 60px;
+    }
+    /* ======== Testimonial.html ======== */
+    .header_testimonial {
+        height: 350px;
+    }
+    .banner_testimonial {
+        padding: 160px 0 0 0;
+        height: 350px;
+    }
+    .page_testimonial {
+        margin: 60px auto 60px auto;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /* ======== index.html ======== */
+    .banner {
+        text-align: center;
+    }
+    .banner_card .container div {
+        width: 100%;
+    }
+    .banner_card {
+        padding: 0px 20px 70px 20px;
+    }
+    .about-cercle1 {
+        left: 200px;
+    }
+    .about {
+        text-align: center;
+    }
+    .about p {
+        padding: 0px;
+    }
+    .service-cercle3 {
+        left: 10%;
+        top: 15%;
+    }
+    .services h2 {
+        padding: 0 10px;
+    }
+    .work-cercle2 {
+        display: none;
+    }
+    .experience {
+        padding: 60px 20px;
+    }
+    .testimonial p {
+        padding: 0 20px;
+    }
+    footer .footer-para {
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .testimonial_card hr {
+        margin: 20px auto 10px auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* global style */
+    h1 {
+        font-size: 35px;
+        font-weight: 600;
+        line-height: 41px;
+    }
+    h2 {
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 34px;
+    }
+    h3 {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 26px;
+    }
+    h4 {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 26px;
+    }
+    h5 {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 22px;
+    }
+    h6 {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+    }
+    p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+    button {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        padding: 12px 26px 12px 26px;
+    }
+    a {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        padding: 12px 26px 12px 26px !important;
+    }
+    /* ======== index.html ======== */
+    .header-cercle1 {
+        left: 80px;
+    }
+    .banner {
+        padding: 40px 0;
+    }
+    .banner_card {
+        padding: 0px 20px 50px 20px;
+    }
+    .banner_card img {
+        width: 70%;
+    }
+    .about-cercle1 {
+        left: 64px;
+    }
+    .about {
+        margin: 40px 0;
+    }
+    .client {
+        margin-bottom: 40px;
+    }
+    .choose {
+        padding: 40px 0;
+    }
+    .choose2 img {
+        width: 70px;
+    }
+    .ab-choose {
+        margin: 40px 0;
+    }
+    .service-cercle3 {
+        left: 0%;
+    }
+    .services {
+        margin: 40px 0;
+    }
+    .service_card img {
+        width: 70%;
+    }
+    .work {
+        margin: 40px 0;
+    }
+    .work-cercle1 {
+        display: none;
+    }
+    .pricing_card {
+        width: 90%;
+        padding: 30px 35px;
+    }
+    .experience {
+        margin: 40px 0px;
+        padding: 40px 20px;
+    }
+    .serv-testimonial {
+        margin-top: 40px;
+        margin-bottom: 70px;
+    }
+    .blog {
+        margin-top: 70px;
+        padding: 40px 0;
+    }
+    footer .footer-cercle1 {
+        left: 0;
+        width: 300px;
+    }
+    footer .col-lg-5 span a i {
+        font-size: 18px;
+    }
+    footer form input {
+        width: 75%;
+    }
+    .ab-footer {
+        margin-top: 40px;
+    }
+    .ab-choose {
+        padding: 40px 0;
+        margin: 40px 0;
+    }
+    .choose2 img {
+        width: 70px;
+    }
+    /* ======== Service.html ======== */
+    .accordion-button {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    /* ======== Contact.html ======== */
+    .contact_page {
+        margin: 40px 0;
+    }
+    /* ======== Pricing.html ======== */
+    .page-pricing {
+        margin-top: 40px;
+    }
+    /* ======== coming soon & 404.html ======== */
+    .coming_soon p {
+        padding: 0 25px;
+    }
+    .coming_soon img {
+        width: 100px;
+    }
+    /* ======== FAQ.html ======== */
+    .page-faq {
+        margin-top: 40px;
+    }
+    /* ======== Testimonial.html ======== */
+    .page_testimonial {
+        margin: 40px auto 40px auto;
+    }
+    /* ======== About.html ======== */
+    .vision {
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    /* ======== index.html ======== */
+    .banner_card .container div {
+        padding: 45px 36px 25px 36px;
+    }
+    footer form input {
+        padding-left: 10px;
+    }
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="shortcut icon" href="assets/Images/fave_icon.png" type="image/x-icon">
+    <!-- Framework Css -->
+    <link rel="stylesheet" href="assets/css/bootstrap-lib/bootstrap.min.css">
+    <!-- Font Awesome / Icon Fonts -->
+    <link rel="stylesheet" href="assets/font-awesome-lib/icon/font-awesome.min.css">
+    <!-- Style Theme -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Responsive Theme -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- slider -->
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+</head>
+
+<body>
+    <!-- site-wrapper -->
+    <div class="site-wrapper">
+
+        <div class="header_faq">
+            <!-- ======== 1.1. Header section ========  -->
+            <header>
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container">
+                        <!-- site logo -->
+                        <a class="navbar-brand p-0" href="index.html"><img src="assets/Images/logo.png" alt="logo"></a>
+                        <button class="navbar-toggler" onclick="openNav()" type="button">
+                  <span class="fa-solid fa-bars"></span>
+                  </button>
+                        <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarNav">
+                            <!-- menus -->
+                            <ul class="navbar-nav d-flex gap-5 align-items-center">
+                                <li class="nav-item"><a class="nav-link p-0" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link p-0" href="About.html">About us</a></li>
+                                <li class="nav-item"><a class="nav-link p-0" href="Service.html">Services</a></li>
+                                <li class="nav-item"><a class="nav-link p-0" href="Contact.html">Contact</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link mx-2 dropdown-toggle p-0 active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                           More
+                           </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li><a class="dropdown-item active" href="faq.html">FAQ</a></li>
+                                        <li><a class="dropdown-item" href="Testimonial.html">Testimonial</a></li>
+                                        <li><a class="dropdown-item" href="Pricing.html">Pricing plan</a></li>
+                                        <li><a class="dropdown-item" href="Blog.html">Blog</a></li>
+                                        <li><a class="dropdown-item" href="Coming_soon.html">Coming soon</a></li>
+                                        <li><a class="dropdown-item" href="404.html">404</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <!-- header buttons -->
+                                    <a class="nav-link btn_hover" href="Contact.html">Get started</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Sidebar -->
+                <aside id="mySidepanel" class="sidepanel">
+                    <div class="sidebar">
+                        <a class="p-0" href="index.html"> <img src="assets/Images/logo.png" alt="logo"> </a>
+                        <button class="closebtn" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <div>
+                        <!-- side menus -->
+                        <ul>
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="About.html">About us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Service.html">Services</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
+                            <li class="pages"><a href="#" class="active">More</a></li>
+                            <li class="collapse_btn nav-item">
+                                <a class="nav-link plus_collapse active" data-bs-toggle="collapse" href="#pages" role="button" aria-expanded="false" aria-controls="pages">
+                                    <i class="fa-solid fa-plus"></i>
+                                </a>
+                                <div class="collapse" id="pages">
+                                    <ul>
+                                        <li class="nav-item"><a class="nav-link active" href="faq.html">FAQ</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="Testimonial.html">Testimonial</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="Pricing.html">Pricing plan</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="Blog.html">Blog</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="Coming_soon.html">Coming soon</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+            </header>
+            <!-- ======== End of 1.1. Header section ========  -->
+
+            <!-- ======== 7.1. hero section ========  -->
+            <section class="banner_faq d-flex align-items-center gap-2 flex-column">
+                <h2>FAQ</h2>
+                <h5>Home / FAQ</h5>
+            </section>
+            <!-- ======== 7.1. hero section ======== -->
+        </div>
+
+        <!-- ======== 3.2. FAQ section ========  -->
+        <section class="page-faq">
+            <div class="container">
+                <div class="row faq">
+                    <div class="col-lg-6 col-md-6 d-flex pe-md-5 pe-sm-0 pe-0 flex-column justify-content-center gap-3 text-md-start text-sm-center text-center position-relative">
+                        <figure><img src="assets/Images/bg/about_cercle1.png" alt="img"></figure>
+                        <h5>FAQ</h5>
+                        <h2>Still confused about our features?</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6 mt-md-0 mt-sm-4 mt-4">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            What are the objective of this service?
+                            </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <p class="accordion-body">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit aliquet fermentum. Nulla non metus sapien. Quisque nec aliquet ante.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            What is cyber security?
+                            </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <p class="accordion-body">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit aliquet fermentum. Nulla non metus sapien. Quisque nec aliquet ante.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            How to try this cyber service?
+                            </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <p class="accordion-body">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit aliquet fermentum. Nulla non metus sapien. Quisque nec aliquet ante.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            How to pay for this?
+                            </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                    <p class="accordion-body">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit aliquet fermentum. Nulla non metus sapien. Quisque nec aliquet ante.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ======== End of 3.2. FAQ section ========  -->
+
+        <!-- ======== 1.10. CTA section ======== -->
+        <section class="experience">
+            <div class="container text-center d-flex flex-column gap-3">
+                <h2>Want to experience our features? get a free 7-days trial.</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+                <div class="d-flex gap-md-3 gap-sm-3 gap-2 flex-md-row flex-sm-row flex-column justify-content-center align-items-center mt-3">
+                    <div class="d-flex gap-md-3 gap-sm-3 gap-2 flex-md-row flex-sm-row flex-column justify-content-center align-items-center mt-3">
+                        <!-- CTA button -->
+                        <a href="#" class="btn_hover">Learn more</a>
+                        <a href="#" class="get">Start free trial</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ======== End of 1.10. CTA section ======== -->
+
+        <!-- ======== 1.13. Footer section ======== -->
+        <footer>
+            <figure><img src="assets/Images/bg/footer_bg.png" alt="img" class="footer-cercle2"></figure>
+            <div class="container position-relative ab-footer">
+                <div class="text-center d-flex flex-column gap-2">
+                    <h5>Get in touch</h5>
+                    <h2>Subscribe our newsletter</h2>
+                    <p class="footer-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <form class="d-flex justify-content-center gap-4 mt-4" id="footer-form">
+                        <div id="footer-message"> </div>
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit"><i class="fa-regular fa-paper-plane"></i></button>
+                    </form>
+                </div>
+                <div class="row text-md-start text-sm-center text-center">
+                    <div class="col-lg-5 col-md-5">
+                        <a href="index.html" class="p-0">
+                            <figure><img src="assets/Images/logo.png" alt="logo"></figure>
+                        </a>
+                        <p class="pb-3 pe-md-5 pe-sm-0 pe-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                        <!-- social icons -->
+                        <span class="d-flex gap-3 flex-wrap justify-content-md-start justify-content-sm-center justify-content-center">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+                       </span>
+                    </div>
+                    <div class="col-lg-3 col-md-3 position-relative mt-md-0 mt-sm-4 mt-4">
+                        <h4>Useful links</h4>
+                        <div class="d-flex gap-md-5 gap-sm-5 gap-5 mt-4 justify-content-md-start justify-content-sm-center justify-content-center">
+                            <div class="d-flex flex-column gap-4">
+                                <a href="index.html" class="p-0">Home</a>
+                                <a href="About.html" class="p-0">About</a>
+                                <a href="Service.html" class="p-0">Services</a>
+                            </div>
+                            <div class="d-flex flex-column gap-4">
+                                <a href="Contact.html" class="p-0">Contact</a>
+                                <a href="Pricing.html" class="p-0">Pricing</a>
+                                <a href="Blog.html" class="p-0">Blog</a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="col-lg-4 col-md-4 ps-4 mt-md-0 mt-sm-4 mt-4 d-flex flex-column align-items-md-start align-items-sm-center align-items-start">
+                        <h4>Our Office</h4>
+                        <div class="d-flex align-items-center gap-4 mt-4">
+                            <i class="fa-sharp fa-solid fa-house"></i>
+                            <p class="p-0">Plaza x , xy floor, street, xyz</p>
+                        </div>
+                        <div class="d-flex align-items-center gap-4 mt-4">
+                            <i class="fa-sharp fa-solid fa-phone"></i>
+                            <p class="p-0">+123-456-7890</p>
+                        </div>
+                        <div class="d-flex align-items-center gap-4 mt-4">
+                            <i class="fa-solid fa-envelope"></i>
+                            <p class="p-0">yourname@email.com</p>
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-5">
+                <!-- copyright text -->
+                <div class="d-flex justify-content-md-between justify-content-sm-center justify-content-center flex-wrap  text-center mb-3 gap-3">
+                    <h6>Copyright © 2023 cyber safe evonicmedia. all rights reserved.</h6>
+                    <h6>Terms and conditions | privacy policy</h6>
+                </div>
+                <figure><img src="assets/Images/bg/about_cercle1.png" alt="img" class="footer-cercle1"></figure>
+            </div>
+        </footer>
+        <!-- ======== End of 1.13. Footer section ======== -->
+    </div>
+    <!-- end site wrapper -->
+
+    <!-- button back to top -->
+    <button onclick="scrollToTop()" id="backToTopBtn" class="btn_hover2"><i class="fa-solid fa-arrow-turn-up"></i></button>
+
+    <!-- j Query -->
+    <script src="assets/js/jquery.js"></script>
+    <!-- counter -->
+    <script src="assets/js/waypoints.min.js"></script>
+    <!-- Framework javascript -->
+    <script src="assets/js/javascript-lib/bootstrap.min.js"></script>
+    <!-- slider -->
+    <script src="assets/js/slick.min.js"></script>
+    <!-- style javascript -->
+    <script src="assets/js/custom.js"></script>
+</body>
+
+</html>
