@@ -1,4 +1,4 @@
-﻿using UMServer.Payloads;
+﻿using Common.Data;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -24,7 +24,7 @@ namespace UMServer.Services
 			if (string.IsNullOrWhiteSpace(userid))
 				return new ApiResult($"Argument {userid} is null");
 
-			var account = new AccountInfo();
+			var account = new AccountMetadata();
 			var result = new ApiResult();
 			try
 			{
