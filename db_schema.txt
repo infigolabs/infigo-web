@@ -1,0 +1,35 @@
+users
+user_id | plan_id | license_key | email | product_version | subscription_status | subscription_start | subscription_end | active | is_expired | is_device_active
+
+test1	   0		lic1	   null	      1.0.0		trial			22			29	    true     false	false
+
+test2	   0            1234      a@b.com      1.0.0		trial			22			29	    true     false	true
+
+test	   101          1234      a@b.com      1.0.0		premium			23			24	    true     false	true
+
+
+premium_users
+license_key | plan_id
+   1234		101
+
+
+userdetails
+user_id | name | os | os_version | country
+
+plans
+plan_id | plan_length | plan_price | plan_description
+
+0	  14		0	     
+101	  90		20
+102	  180		35
+103	  365		60
+
+subscription_status
+none
+trial
+paid
+expired
+
+ErrorCodes:
+Starting plans
+101
