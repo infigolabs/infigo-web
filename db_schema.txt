@@ -3,7 +3,7 @@ user_id | plan_id | license_key | email | product_version | subscription_status 
 
 test1	   0		lic1	   null	      1.0.0		trial			22			29	    true     false	false
 
-test2	   0            1234      a@b.com      1.0.0		trial			22			29	    true     false	true
+test2	   0            123      a@b.com      1.0.0		trial			22			29	    true     false	true
 
 test	   101          1234      a@b.com      1.0.0		premium			23			24	    true     false	true
 
