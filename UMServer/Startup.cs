@@ -14,6 +14,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UMServer.Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace UMServer
 {
@@ -31,7 +33,15 @@ namespace UMServer
 		{
 
 			services.AddControllers();
-			services.AddSwaggerGen(c =>
+
+            services.AddDbContext<MyContext>(options =>
+            {
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+            });
+
+
+            services.AddScoped(typeof(IDbOperations<>), typeof(DbOperations<>));
+            services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "UMServer", Version = "v1" });
 			});
@@ -40,6 +50,7 @@ namespace UMServer
 
 			services.AddSingleton<IDatabaseService, LicenseDatabaseService>();
 			services.AddTransient<IAccountService, AccountService>();
+			services.AddTransient<IPlanService, PlanService>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

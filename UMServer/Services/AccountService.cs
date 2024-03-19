@@ -2,24 +2,71 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using UMServer.Models;
 
 namespace UMServer.Services
 {
 	public class AccountService : IAccountService
 	{
 		private readonly IDatabaseService mDatabaseService;
-
-		public AccountService(IDatabaseService databaseService)
+        private readonly IDbOperations<User> _user;
+        private readonly IDbOperations<Plan> _plan;
+        private readonly IDbOperations<UserDetail> _userdetail;
+        private readonly IDbOperations<PremiumUser> _premiumuser;
+        public AccountService(IDatabaseService databaseService, IDbOperations<User> user, IDbOperations<Plan> plan, IDbOperations<UserDetail> userdetail, IDbOperations<PremiumUser> premiumuser)
 		{
 			mDatabaseService = databaseService;
-		}
+            _user = user;
+            _plan = plan;
+            _userdetail = userdetail;
+            _premiumuser = premiumuser;
+        }
 
-		/// <summary>
-		/// Get account details for user id.
-		/// </summary>
-		/// <param name="userid"></param>
-		/// <returns></returns>
-		public ApiResult GetAccountInfo(string userid)
+        /// <summary>
+        /// Get account details for user id.
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
+		public async Task<ApiResult> GetAccountInfos(string userid) 
+		{
+            if (string.IsNullOrWhiteSpace(userid))
+                return new ApiResult($"Argument {userid} is null");
+
+            var result = new ApiResult();
+            try
+            {
+                var users = await _user.GetAllAsync();
+                var user = users.Where(x => x.UserId == int.Parse(userid));        
+                if (user.Count() == 0)
+                {
+                    result.Error = $"User {userid} is not found";
+                    result.StatusCode = (int)StatusCodes.AccountNotFound;
+                    return result;
+                }
+                else
+                {
+                    result.StatusCode = (int)StatusCodes.Success;
+                    result.Data = JsonConvert.SerializeObject(user);
+                    return result;
+                }
+            }
+            catch (Exception ex) 
+            {
+                result.Error = $"Error while fetching information {ex.Message}";
+                result.StatusCode = (int)StatusCodes.FetchAccountErr;
+                return result;
+            }
+        }
+
+
+        /// <summary>
+        /// Get account details for user id.
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
+        public ApiResult GetAccountInfo(string userid)
 		{
 			if (string.IsNullOrWhiteSpace(userid))
 				return new ApiResult($"Argument {userid} is null");
@@ -30,8 +77,9 @@ namespace UMServer.Services
 			{
 				List<string> columns = new List<string>() { "user_id", "email", "name", "plan_id", "subscription_status", "subscription_start", "subscription_end", "active", "is_expired", "is_device_actived" };
 				var row = mDatabaseService.GetRowWhere(Constants.USERS_TABLE, columns, "user_id", userid);
+				
 
-				if (row == null || row.Count == 0)
+                if (row == null || row.Count == 0)
 				{
 					result.StatusCode = (int)StatusCodes.AccountNotFound;
 					result.Error = $"User {userid} is not found";
@@ -71,59 +119,46 @@ namespace UMServer.Services
 			// If account exist with subscription "premium", return details and UI will not show buy license banner. 
 		}
 
-		/// <summary>
-		/// Start the trial for new user.
-		/// </summary>
-		/// <param name="userid"></param>
-		/// <param name="planId"></param>
-		/// <returns></returns>
-		public ApiResult StartTrial(TrialMetadata metadata)
+
+		public async Task<ApiResult> StartTrials(TrialMetadata metadata)
 		{
-			
-			if (metadata == null)
-				return new ApiResult($"{nameof(StartTrial)}: {nameof(metadata)} is null");
+            if (metadata == null)
+                return new ApiResult($"{nameof(StartTrials)}: {nameof(metadata)} is null");
 
-			if (string.IsNullOrWhiteSpace(metadata.UserId))
-				return new ApiResult($"{nameof(StartTrial)}: {nameof(metadata.UserId)} is null or empty");
+            if (string.IsNullOrWhiteSpace(metadata.UserId))
+                return new ApiResult($"{nameof(StartTrials)}: {nameof(metadata.UserId)} is null or empty");
 
-			if (metadata.PlanId < 0)
-				return new ApiResult($"{nameof(StartTrial)}: Invalid planid {nameof(metadata.PlanId)}");
+            if (metadata.PlanId < 0)
+                return new ApiResult($"{nameof(StartTrials)}: Invalid planid {nameof(metadata.PlanId)}");
 
-			ApiResult result = new ApiResult();
+            ApiResult result = new ApiResult();
 
-			try
-			{
+            try
+            {
 
-				if (CreateTrialPlan(metadata))
-				{
-					return GetAccountInfo(metadata.UserId);
-				}
-				else
-				{
-					result.StatusCode = (int)StatusCodes.StartTrialFailed;
-					result.Error = "Failed to start the trial";
-				}
-			}
-			catch(Exception ex)
-			{
-				result.StatusCode = (int)StatusCodes.StartTrialErr;
-				result.Error = $"{nameof(StartTrial)}: Error while starting trial. {ex.Message}";
-			}
+                if (await CreateTrialPlans(metadata))
+                {
+                    return await GetAccountInfos(metadata.UserId);
+                }
+                else
+                {
+                    result.StatusCode = (int)StatusCodes.StartTrialFailed;
+                    result.Error = "Failed to start the trial";
+                }
+            }
+            catch (Exception ex)
+            {
+                result.StatusCode = (int)StatusCodes.StartTrialErr;
+                result.Error = $"{nameof(StartTrials)}: Error while starting trial. {ex.Message}";
+            }
 
-			return result;
-		}		
+            return result;
+        }
 
-		/// <summary>
-		/// Register user when purchase is made.
-		/// </summary>
-		/// <param name="userid"></param>
-		/// <param name="planId"></param>
-		/// <param name="email"></param>
-		/// <param name="name"></param>
-		/// <returns></returns>
-		public ApiResult Register(RegistrationMetadata metadata)
+		public async Task<ApiResult> Register(RegistrationMetadata metadata)
 		{
-			if (metadata == null)
+            ApiResult result = new ApiResult();
+            if (metadata == null)
 				return new ApiResult($"{nameof(Register)}: {nameof(metadata)} is null");
 
 			if (string.IsNullOrWhiteSpace(metadata.UserId))
@@ -135,14 +170,51 @@ namespace UMServer.Services
 			if (metadata.PlanId < 0)
 				return new ApiResult($"{nameof(Register)}: Invalid planid {nameof(metadata.PlanId)}");
 
+            try
+            {
+                var users = await _user.GetAllAsync();
+                var user = users.Where(x => x.UserId == int.Parse(metadata.UserId)).ToList();
+                // Generate license key and send it to user email.
+                var licensekey = GenerateLicenseKey(metadata.UserId);
+                // If user is already on valid trial, only update license_key, email and name fields.
+                if (user.Count() > 0)
+                {
+                    var currentuser = user[0];
+                    currentuser.LicenseKey = licensekey;
+                    currentuser.Email = metadata.Email;
 
-			// Generate license key and send it to user email.
-			// If user is already on valid trial, only update license_key, email and name fields.
-			// Store a record in premium_users table for generated license_key and purchased planid.
+                    var userdetails = await _userdetail.GetAllAsync();
+                    var userdetail = userdetails.Where(x => x.UserId == int.Parse(metadata.UserId)).First();
+                    userdetail.Name = metadata.Name;
 
-			// If paid subscription is not activated, trial period can still be used as long as it is valid.
+                    await _user.Update(currentuser);
+                    await _userdetail.Update(userdetail);
+                }
+                else 
+                {
+                    result.Error = $"User {metadata.UserId} is not found";
+                    result.StatusCode = (int)StatusCodes.AccountNotFound;
+                    return result;
+                }
+                // Store a record in premium_users table for generated license_key and purchased planid.
+                var premiumUser = new PremiumUser
+                {
+                    LicenseKey = licensekey,
+                    PlanId = metadata.PlanId
+                };
 
-			return null;
+                await _premiumuser.Insert(premiumUser);
+                // If paid subscription is not activated, trial period can still be used as long as it is valid.
+                result.StatusCode = (int)StatusCodes.Success;
+
+                return result;
+            }
+            catch (Exception ex) 
+            {
+                result.Error=ex.Message;
+                result.StatusCode = (int)StatusCodes.RegisterFailed;
+                return result;
+            }
 		}
 
 		/// <summary>
@@ -151,60 +223,109 @@ namespace UMServer.Services
 		/// <param name="userid"></param>
 		/// <param name="licenseKey"></param>
 		/// <returns></returns>
-		public ApiResult Validate(string userid, string licenseKey)
+		public async Task<ApiResult> Validate(string userid, string licenseKey)
 		{
-			if (string.IsNullOrWhiteSpace(userid))
+            var result = new ApiResult();
+            if (string.IsNullOrWhiteSpace(userid))
 				return null;
 
 			if (string.IsNullOrWhiteSpace(licenseKey))
 				return null;
+            try
+            {
+                // Fetch user details by userid.
+                var users = await _user.GetAllAsync();
+                if (users.Count() == 0)
+                {
+                    result.Error = $"User {userid} is not found";
+                    result.StatusCode = (int)StatusCodes.AccountNotFound;
+                    return result;
+                }
+                else
+                {
+                    var user = users.Where(x => x.UserId == int.Parse(userid)).ToList()[0];
 
-			// Fetch user details by userid.
-			// Update the license_key field.
-			// Generate new subscription start and end dates.
-			// Update subscription_status to "paid"
-			// Update plan_id to new one for this license_key from premium_users table.
-			return null;
+                    // Update the license_key field.
+                    user.LicenseKey = licenseKey;
+
+                    // Generate new subscription start and end dates.
+                    var plain_ids = await _premiumuser.GetAllAsync();
+                    var plain_id = plain_ids.Where(x => x.LicenseKey == licenseKey).Select(x => x.PlanId).ToList()[0];
+                    var plans = await _plan.GetAllAsync();
+                    var plan_length = plans.Where(x => x.PlanId == plain_id).Select(x => x.PlanLength).ToList()[0];
+
+                    // Update subscription_status to "paid"
+                    user.SubscriptionStatus = nameof(SubscriptionType.paid);
+
+                    // Update plan_id to new one for this license_key from premium_users table.
+                    user.PlanId = plain_id;
+                    await _user.Update(user);
+                    result.Data = JsonConvert.SerializeObject(user);
+                    result.StatusCode = (int)StatusCodes.Success;
+                    return result;
+                }
+            }
+            catch (Exception ex) 
+            {
+                result.Error = ex.Message;
+                result.StatusCode = (int)StatusCodes.ValidateFailed;
+                return result;
+            }
 		}
 
-		private bool CreateTrialPlan(TrialMetadata trialMetadata)
-		{
-			List<string> planValues = mDatabaseService.GetRowWhere(Constants.PLANS_TABLE, new List<string>() { "plan_length" }, "plan_id", trialMetadata.PlanId.ToString());
-			// user_id | plan_id | license_key | email | name | product_version | subscription_status | subscription_start | subscription_end | active | is_expired | is_device_active
 
-			// Generate subscription start and end date
-			// Set active to true and is_expired to false
-			// Subscription_status to "trial".
-			// update user_details table.
+		private async Task<bool> CreateTrialPlans(TrialMetadata trialMetadata)
+		{
+			var plans= await _plan.GetAllAsync();
+			List<int> planValues = plans.Where(x => x.PlanId == trialMetadata.PlanId).Select(x=>x.PlanLength).ToList();
 
 			ulong planLength = Convert.ToUInt64(planValues[0]);
-			List<object> values = new List<object>();
-			values.Add(trialMetadata.UserId);
-			values.Add(trialMetadata.PlanId);
-			values.Add(string.Empty);
-			values.Add(string.Empty);
-			values.Add(string.Empty);
-			values.Add(string.Empty);
-			values.Add(SubscriptionType.trial.ToString());
+            User user = new User
+            {
+                PlanId = 1,
+                LicenseKey = "ABC123",
+                Email = "example@example.com",
+                ProductVersion = "1.0",
+                SubscriptionStatus = "Active",
+                SubscriptionStart = DateTime.Now,
+                SubscriptionEnd = DateTime.Now.AddDays(planLength),
+                Active = true,
+                IsExpired = false,
+                IsDeviceActive = true
+            };
+			var userentity=await _user.Insert(user);
 
-			ulong currentTime = TimeUtils.Now();
-			values.Add(currentTime);
-			values.Add((currentTime + planLength * 24 * 60 * 60));
-			values.Add(true);
-			values.Add(false);
-			values.Add(true);
-			if (mDatabaseService.InsertRow(Constants.USERS_TABLE, values))
-			{
-				mDatabaseService.InsertRow(Constants.USER_DETAILS_TABLE,
-					new List<object>() { trialMetadata.UserId, trialMetadata.OS, trialMetadata.OSVersion, trialMetadata.Country });
-				return true;
-			}
+            UserDetail userDetails = new UserDetail
+            {
+                UserId = userentity.UserId,
+                Name = "John Doe",
+                OS = "Windows",
+                OSVersion = "10",
+                Country = "USA"
+            };
+			var userdetailentity= await _userdetail.Insert(userDetails);
+           			
+            return true;
+        }
 
-			return false;
-		}
-	}
+        private string GenerateLicenseKey(string userid)
+        {
+            // Generate a unique GUID
+            Guid guid = Guid.NewGuid();
 
-	enum SubscriptionType
+            // Convert GUID to a string and remove hyphens
+            string guidString = guid.ToString("N");
+
+            // Concatenate the product name and the GUID
+            string licenseKey = $"{userid}-{guidString}";
+
+            return licenseKey;
+        }
+    }
+
+    
+
+    enum SubscriptionType
 	{
 		none,
 		trial,
@@ -218,6 +339,8 @@ namespace UMServer.Services
 		AccountNotFound = 11,
 		FetchAccountErr = 10,
 		StartTrialErr = 20,
-	    StartTrialFailed = 21
-	}
+	    StartTrialFailed = 21,
+        RegisterFailed=30,
+        ValidateFailed = 30
+    }
 }
