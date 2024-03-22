@@ -48,7 +48,7 @@ namespace UMServer.Services
                 else
                 {
                     result.StatusCode = (int)StatusCodes.Success;
-                    result.Data = JsonConvert.SerializeObject(user);
+                    result.Data = JsonConvert.SerializeObject(user.ToList()[0]);
                     return result;
                 }
             }
