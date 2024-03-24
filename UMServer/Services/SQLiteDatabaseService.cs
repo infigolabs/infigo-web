@@ -6,7 +6,7 @@ using System.IO;
 
 namespace UMServer.Services
 {
-	public abstract class DatabaseService : IDatabaseService
+	public abstract class SQLiteDatabaseService : ISQLiteDatabaseService
 	{
 		public abstract string DatabaseFile { get; }
 		protected SqliteConnection mConnection;
@@ -34,7 +34,7 @@ namespace UMServer.Services
 			}
 			catch (Exception ex)
 			{
-				Logger.WriteLine($"{nameof(DatabaseService)}, Open, Error occurred {ex.Message}");
+				Logger.WriteLine($"{nameof(SQLiteDatabaseService)}, Open, Error occurred {ex.Message}");
 				throw;
 			}
 		}
@@ -56,7 +56,7 @@ namespace UMServer.Services
 			}
 			catch (Exception ex)
 			{
-				Logger.WriteLine($"{nameof(DatabaseService)}, {nameof(CreateTable)}, Error occurred for {table} {ex.Message}");
+				Logger.WriteLine($"{nameof(SQLiteDatabaseService)}, {nameof(CreateTable)}, Error occurred for {table} {ex.Message}");
 				throw;
 			}
 		}
@@ -83,7 +83,7 @@ namespace UMServer.Services
 			}
 			catch (Exception ex)
 			{
-				Logger.WriteLine($"{nameof(DatabaseService)}, {nameof(PurgeTable)}, Error occurred for {table} {ex.Message}");
+				Logger.WriteLine($"{nameof(SQLiteDatabaseService)}, {nameof(PurgeTable)}, Error occurred for {table} {ex.Message}");
 				throw;
 			}
 		}
@@ -101,7 +101,7 @@ namespace UMServer.Services
 			}
 			catch (Exception ex)
 			{
-				Logger.WriteLine($"{nameof(DatabaseService)}, {nameof(GetRowWhereDataReader)}, Error occurred for {table} {ex.Message}");
+				Logger.WriteLine($"{nameof(SQLiteDatabaseService)}, {nameof(GetRowWhereDataReader)}, Error occurred for {table} {ex.Message}");
 			}
 
 			return null;
@@ -133,7 +133,7 @@ namespace UMServer.Services
 			}
 			catch (Exception ex)
 			{
-				Logger.WriteLine($"{nameof(DatabaseService)}, {nameof(GetRowWhere)}, Error occurred for {table} {ex.Message}");
+				Logger.WriteLine($"{nameof(SQLiteDatabaseService)}, {nameof(GetRowWhere)}, Error occurred for {table} {ex.Message}");
 			}
 
 			return null;
@@ -152,7 +152,7 @@ namespace UMServer.Services
 			}
 			catch (Exception ex)
 			{
-				Logger.WriteLine($"{nameof(DatabaseService)}, {nameof(ExistsRowWhere)}, Error occurred for {table} {ex.Message}");
+				Logger.WriteLine($"{nameof(SQLiteDatabaseService)}, {nameof(ExistsRowWhere)}, Error occurred for {table} {ex.Message}");
 			}
 
 			return false;

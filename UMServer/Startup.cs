@@ -14,6 +14,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UMServer.Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace UMServer
 {
@@ -29,17 +31,27 @@ namespace UMServer
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-
 			services.AddControllers();
-			services.AddSwaggerGen(c =>
+
+            services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "UMServer", Version = "v1" });
 			});
 
 			services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 
-			services.AddSingleton<IDatabaseService, LicenseDatabaseService>();
+			//services.AddSingleton<IDatabaseService, LicenseDatabaseService>();
+			services.AddSingleton<IEmailService, EmailService>();
 			services.AddTransient<IAccountService, AccountService>();
+			services.AddTransient<IPlanService, PlanService>();
+
+			services.AddDbContext<ApplicationDBContext>(options =>
+			{
+				if (string.IsNullOrWhiteSpace(Configuration.GetConnectionString("SqlConnection")) == false)
+				{
+					options.UseSqlServer(Configuration.GetConnectionString("SqlConnection"));
+				}
+			});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,8 +63,6 @@ namespace UMServer
 				app.UseSwagger();
 				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "UMServer v1"));
 			}
-
-			app.ApplicationServices.GetService<IDatabaseService>()?.Initialize();
 
 			app.UseHttpsRedirection();
 

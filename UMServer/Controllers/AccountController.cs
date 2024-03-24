@@ -1,5 +1,7 @@
 ﻿using Common.Data;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
 using UMServer.Services;
 
 namespace UMServer.Controllers
@@ -16,30 +18,44 @@ namespace UMServer.Controllers
 		}
 
 		[HttpPost("trial")]
-		public string StartTrial([FromBody] TrialMetadata trialMetadata)
+		public async Task<string> StartTrial([FromBody] TrialMetadata trialMetadata)
 		{
-			var result = mAccountService.StartTrial(trialMetadata);
-			return Newtonsoft.Json.JsonConvert.SerializeObject(result);
+			//var result = mAccountService.StartTrial(trialMetadata);
+			var result =await mAccountService.StartTrial(trialMetadata);
+			return JsonConvert.SerializeObject(result);
 		}
 
 		[HttpGet("user/info")]
-		public string GetAccountInfo(string userid)
+		public async Task<string> GetAccountInfo(string userid)
 		{
-			var result = mAccountService.GetAccountInfo(userid);
-			return Newtonsoft.Json.JsonConvert.SerializeObject(result);
+			//var result = mAccountService.GetAccountInfo(userid);
+			var result = await mAccountService.GetAccountInfo(userid);
+			//var settings = new JsonSerializerSettings
+			//{
+			//	ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+			//};
+			return JsonConvert.SerializeObject(result);
 		}
 
 		[HttpPost("register")]
-		public string Register([FromBody] RegistrationMetadata registrationMetadata)
+		public async Task<string> Register([FromBody] RegistrationMetadata registrationMetadata)
 		{
-			var result = mAccountService.Register(registrationMetadata);
-			return Newtonsoft.Json.JsonConvert.SerializeObject(result);
+			var result = await mAccountService.Register(registrationMetadata);
+			return JsonConvert.SerializeObject(result);
 		}
 
-		[HttpPost("subscription/verify")]
-		public bool VerifyLicense([FromBody] LicenseMetadata licenseMetadata)
+		[HttpPost("activate")]
+		public async Task<string> Activate([FromBody] LicenseMetadata licenseMetadata)
 		{
-			return true;
+            var result = await mAccountService.Activate(licenseMetadata.UserId,licenseMetadata.LicenseKey);
+            return JsonConvert.SerializeObject(result);
+        }
+
+		[HttpGet("deactivate")]
+		public async Task<string> Deactivate(string userid)
+		{
+			var result = await mAccountService.Deactivate(userid);
+			return JsonConvert.SerializeObject(result);
 		}
 	}
 }

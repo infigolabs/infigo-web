@@ -1,12 +1,14 @@
 ﻿using Common.Data;
+using System.Threading.Tasks;
 
 namespace UMServer.Services
 {
 	public interface IAccountService
 	{
-		ApiResult StartTrial(TrialMetadata trialMetadata);
-		ApiResult GetAccountInfo(string userid);
-		ApiResult Register(RegistrationMetadata registerMetadata);
-		ApiResult Validate(string userid, string licenseKey);
+		Task<ApiResult> Register(RegistrationMetadata registerMetadata);
+		Task<ApiResult> Activate(string userid, string licenseKey);
+		Task<ApiResult> Deactivate(string userid);
+		Task<ApiResult> GetAccountInfo(string userid);
+		Task<ApiResult> StartTrial(TrialMetadata metadata);
 	}
 }
