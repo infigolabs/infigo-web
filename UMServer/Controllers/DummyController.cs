@@ -13,9 +13,9 @@ namespace UMServer.Controllers
     [ApiController]
     public class DummyController : ControllerBase
     {
-        private readonly MyContext DBContext;
+        private readonly ApplicationDBContext DBContext;
 
-        public DummyController(MyContext DBContext)
+        public DummyController(ApplicationDBContext DBContext)
         {
             this.DBContext = DBContext;
         }
@@ -25,7 +25,7 @@ namespace UMServer.Controllers
         public IEnumerable<string> Get()    
         
         {
-            AddDummydata();
+            //AddDummydata();
             return new string[] { "value1", "value2" };
         }
 
@@ -53,56 +53,56 @@ namespace UMServer.Controllers
         public void Delete(int id)
         {
         }
-        private void AddDummydata()
-        {    
-                // Add a dummy row to the plans table
-                var dummyPlan = new Plan
-                {
-                    PlanLength = 30,
-                    PlanPrice = 9.99m,
-                    PlanDescription = "Dummy Plan"
-                };
-                //DBContext.Plans.Add(dummyPlan);
-                //DBContext.SaveChanges();
+        //private void AddDummydata()
+        //{    
+        //        // Add a dummy row to the plans table
+        //        var dummyPlan = new Plan
+        //        {
+        //            PlanLength = 30,
+        //            PlanPrice = 9.99m,
+        //            PlanDescription = "Dummy Plan"
+        //        };
+        //        //DBContext.Plans.Add(dummyPlan);
+        //        //DBContext.SaveChanges();
 
-                // Add a dummy row to the users table
-                var dummyUser = new User
-                {
-                    PlanId = 1,
-                    LicenseKey = "ABC123",
-                    Email = "dummy@example.com",
-                    ProductVersion = "1.0",
-                    SubscriptionStatus = "Active",
-                    SubscriptionStart = DateTime.UtcNow,
-                    SubscriptionEnd = DateTime.UtcNow.AddDays(30),
-                    Active = true,
-                    IsExpired = false,
-                    IsDeviceActive = true
-                };
-                //DBContext.Users.Add(dummyUser);
-                //DBContext.SaveChanges();
+        //        // Add a dummy row to the users table
+        //        var dummyUser = new Account
+        //        {
+        //            PlanId = 1,
+        //            LicenseKey = "ABC123",
+        //            Email = "dummy@example.com",
+        //            ProductVersion = "1.0",
+        //            SubscriptionStatus = "Active",
+        //            SubscriptionStart = TimeUtils.Now(),
+        //            SubscriptionEnd = TimeUtils.Now() + 14*24*60*60,
+        //            Active = true,
+        //            IsExpired = false,
+        //            IsDeviceActive = true
+        //        };
+        //        //DBContext.Users.Add(dummyUser);
+        //        //DBContext.SaveChanges();
 
-                // Add a dummy row to the premium_users table
-                var dummyPremiumUser = new PremiumUser
-                {
-                    LicenseKey = "ABC123",
-                    PlanId = 1
-                };
-                //DBContext.PremiumUsers.Add(dummyPremiumUser);
-                //DBContext.SaveChanges();
+        //        // Add a dummy row to the premium_users table
+        //        var dummyPremiumUser = new PremiumUser
+        //        {
+        //            LicenseKey = "ABC123",
+        //            PlanId = 1
+        //        };
+        //        //DBContext.PremiumUsers.Add(dummyPremiumUser);
+        //        //DBContext.SaveChanges();
 
-                // Add a dummy row to the userdetails table
-                var dummyUserDetail = new UserDetail
-                {
-                    UserId = 1,
-                    Name = "Dummy User",
-                    OS = "Windows",
-                    OSVersion = "10",
-                    Country = "USA"
-                };
-                DBContext.UserDetails.Add(dummyUserDetail);
-                DBContext.SaveChanges();
-            }
+        //        // Add a dummy row to the userdetails table
+        //        var dummyUserDetail = new AccountDetail
+        //        {
+        //            UserId = 1,
+        //            Name = "Dummy User",
+        //            OS = "Windows",
+        //            OSVersion = "10",
+        //            Country = "USA"
+        //        };
+        //        DBContext.UserDetails.Add(dummyUserDetail);
+        //        DBContext.SaveChanges();
+        //    }
         
     }
 }

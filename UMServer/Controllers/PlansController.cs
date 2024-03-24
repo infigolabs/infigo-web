@@ -26,16 +26,16 @@ namespace UMServer.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<string> CreatePlan([FromBody] Plan plan)
+        public async Task<string> CreatePlan([FromBody] PlanMetadata plan)
         {
             var result = await mPlanService.CreatePlan(plan);
             return JsonConvert.SerializeObject(result);
         }
 
         [HttpPut("{id}")]
-        public async Task<string> UpdatePlan(int id, Plan plan)
+        public async Task<string> UpdatePlan(PlanMetadata plan)
         {
-            var result = await mPlanService.UpdatePlan(id,plan);
+            var result = await mPlanService.UpdatePlan(plan);
             return JsonConvert.SerializeObject(result);
         }
     }

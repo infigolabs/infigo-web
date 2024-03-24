@@ -4,10 +4,9 @@ using UMServer.Models;
 
 namespace UMServer.Common
 {
-    public class MyContext: DbContext
+    public class ApplicationDBContext: DbContext
     {
-        
-        public MyContext(DbContextOptions<MyContext> options)
+        public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options)
           : base(options)
         {
             //this.ChangeTracker.LazyLoadingEnabled = false;
@@ -16,13 +15,10 @@ namespace UMServer.Common
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PremiumUser>()
-                .HasKey(pu => new { pu.LicenseKey, pu.PlanId });
-
-            //modelBuilder.Entity<UserDetail>().HasNoKey();
-        }
-        public DbSet<User> Users { get; set; }
+                .HasNoKey();
+		}
+        public DbSet<Account> Accounts { get; set; }
         public DbSet<PremiumUser> PremiumUsers { get; set; }
-        public DbSet<UserDetail> UserDetails { get; set; }
         public DbSet<Plan> Plans { get; set; }
     }
 }
