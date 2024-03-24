@@ -36,10 +36,11 @@ namespace UMServer.Services
 			message.To.Add(new MailAddress(toAddress));
 			message.Subject = subject;
 			message.Body = body;
-			message.IsBodyHtml = true;
+			message.IsBodyHtml = false;
 			smtp.Port = EmailSettings.Port;
 			smtp.Host = EmailSettings.Host;
 			smtp.EnableSsl = true;
+			smtp.Timeout = 20000;
 			smtp.UseDefaultCredentials = false;
 			smtp.Credentials = new NetworkCredential(EmailSettings.Email, EmailSettings.Password);
 			smtp.DeliveryMethod = SmtpDeliveryMethod.Network;

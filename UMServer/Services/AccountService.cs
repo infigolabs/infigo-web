@@ -116,7 +116,7 @@ namespace UMServer.Services
 				var account = ThrowIfAccountDoesNotExist(metadata.UserId);
 
 				// Generate license key and send it to user email.
-				var licensekey = GenerateLicenseKey(metadata.UserId);
+				var licensekey = GenerateLicenseKey();
 
 				// Send license key to the user's email.
 				mEmailService.Send(metadata.Email, "License key", licensekey);
@@ -267,18 +267,10 @@ namespace UMServer.Services
 			return account;
 		}
 
-		private string GenerateLicenseKey(string userid)
+		private string GenerateLicenseKey()
 		{
 			// Generate a unique GUID
-			Guid guid = Guid.NewGuid();
-
-			// Convert GUID to a string and remove hyphens
-			string guidString = guid.ToString("N");
-
-			// Concatenate the product name and the GUID
-			string licenseKey = $"{userid}-{guidString}";
-
-			return licenseKey;
+			return Guid.NewGuid().ToString("N");
 		}
 
 		private AccountMetadata ToAccountMetadata(Account account)
