@@ -13,11 +13,12 @@ namespace UMServer.Services
 		{
 			EmailSettings = new EmailSettings
 			{
-				Email = configuration["Moderator:EmailSettings:Email"],
-				FirstName = configuration["Moderator:EmailSettings:FirstName"],
-				LastName = configuration["Moderator:EmailSettings:LastName"],
-				Password = configuration["Moderator:EmailSettings:Password"],
-				Host = configuration["Moderator:EmailSettings:Host"]
+				Email = configuration["EmailSettings:Email"],
+				FirstName = configuration["EmailSettings:FirstName"],
+				LastName = configuration["EmailSettings:LastName"],
+				Password = configuration["EmailSettings:Password"],
+				Host = configuration["EmailSettings:Host"],
+				Port = int.Parse(configuration["EmailSettings:Port"])
 			};
 		}
 
@@ -36,7 +37,7 @@ namespace UMServer.Services
 			message.Subject = subject;
 			message.Body = body;
 			message.IsBodyHtml = true;
-			smtp.Port = 587;
+			smtp.Port = EmailSettings.Port;
 			smtp.Host = EmailSettings.Host;
 			smtp.EnableSsl = true;
 			smtp.UseDefaultCredentials = false;
