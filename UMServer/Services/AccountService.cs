@@ -237,6 +237,9 @@ namespace UMServer.Services
 			{
 				var account = ThrowIfAccountDoesNotExist(userid);
 				account.IsDeviceActive = false;
+
+				mDBContext.Accounts.Update(account);
+				await mDBContext.SaveChangesAsync();
 				result.Data = JsonConvert.SerializeObject(ToAccountMetadata(account));
 				return result;
 			}
