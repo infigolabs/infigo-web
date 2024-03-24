@@ -11,8 +11,8 @@ using UMServer.Common;
 namespace UMServer.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20240323111935_init-database")]
-    partial class initdatabase
+    [Migration("20240324083953_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,13 +94,15 @@ namespace UMServer.Migrations
                     b.ToTable("Plans");
                 });
 
-            modelBuilder.Entity("UMServer.Models.PremiumUser", b =>
+            modelBuilder.Entity("UMServer.Models.PremiumAccount", b =>
                 {
-                    b.Property<string>("AccountId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("PlanId")
                         .HasColumnType("int");
+
+                    b.HasKey("Id");
 
                     b.ToTable("PremiumUsers");
                 });

@@ -128,9 +128,9 @@ namespace UMServer.Services
 				mDBContext.Accounts.Update(account);
 
 				// Store a record in premium_users table for generated license_key and purchased planid.
-				var premiumUser = new PremiumUser
+				var premiumUser = new PremiumAccount
 				{
-					AccountId = account.AccountId,
+					Id = account.AccountId,
 					PlanId = metadata.PlanId
 				};
 
@@ -159,7 +159,7 @@ namespace UMServer.Services
 					throw new Exception("Invalid license key");
 
 				var account = ThrowIfAccountDoesNotExist(userid);
-				var premiumAccount = mDBContext.PremiumUsers.FirstOrDefault(acct => acct.AccountId == userid);
+				var premiumAccount = mDBContext.PremiumUsers.FirstOrDefault(acct => acct.Id == userid);
 				if (premiumAccount == null)
 					throw new Exception("No subscription found for this account");
 

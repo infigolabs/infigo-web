@@ -91,13 +91,15 @@ namespace UMServer.Migrations
                     b.ToTable("Plans");
                 });
 
-            modelBuilder.Entity("UMServer.Models.PremiumUser", b =>
+            modelBuilder.Entity("UMServer.Models.PremiumAccount", b =>
                 {
-                    b.Property<string>("AccountId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("PlanId")
                         .HasColumnType("int");
+
+                    b.HasKey("Id");
 
                     b.ToTable("PremiumUsers");
                 });

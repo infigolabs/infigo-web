@@ -5,7 +5,7 @@
 namespace UMServer.Migrations
 {
     /// <inheritdoc />
-    public partial class initdatabase : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -28,11 +28,12 @@ namespace UMServer.Migrations
                 name: "PremiumUsers",
                 columns: table => new
                 {
-                    AccountId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     PlanId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PK_PremiumUsers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(

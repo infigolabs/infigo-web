@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Numerics;
 
 namespace UMServer.Models
 {
-    public class PremiumUser
+	public class PremiumAccount
     {
-        [ForeignKey("Account")]
-        public string AccountId { get; set; }
+		[DatabaseGenerated(DatabaseGeneratedOption.None)]
+		public string Id { get; set; }
 
 		[ForeignKey("Plan")]
 		public int PlanId { get; set; }
