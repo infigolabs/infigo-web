@@ -7,5 +7,6 @@
 		public string Host { get; set; }
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
+		public int Port { get; set; }
 	}
 }

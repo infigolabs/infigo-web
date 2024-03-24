@@ -12,10 +12,12 @@ namespace UMServer.Services
 	public class AccountService : IAccountService
 	{
 		private readonly ApplicationDBContext mDBContext;
+		private readonly IEmailService mEmailService;
 
-		public AccountService(ApplicationDBContext dbContext)
+		public AccountService(ApplicationDBContext dbContext, IEmailService emailService)
 		{
 			mDBContext = dbContext;
+			mEmailService = emailService;
 		}
 
 		public async Task<ApiResult> GetAccountInfo(string userid)
@@ -113,10 +115,13 @@ namespace UMServer.Services
 			{
 				var account = ThrowIfAccountDoesNotExist(metadata.UserId);
 
-				// If user is already on valid trial, only update license_key, email and name fields.
 				// Generate license key and send it to user email.
 				var licensekey = GenerateLicenseKey(metadata.UserId);
 
+				// Send license key to the user's email.
+				mEmailService.Send(metadata.Email, "License key", licensekey);
+
+				// If user is already on valid trial, only update license_key, email and name fields.
 				account.LicenseKey = licensekey;
 				account.Email = metadata.Email;
 			
@@ -132,10 +137,6 @@ namespace UMServer.Services
 				mDBContext.PremiumUsers.Add(premiumUser);
 
 				await mDBContext.SaveChangesAsync();
-
-				// TODO: Send email to user about license key.
-
-				// If paid subscription is not activated, trial period can still be used as long as it is valid.
 			}
 			catch (Exception ex)
 			{
