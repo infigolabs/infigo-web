@@ -46,6 +46,8 @@ namespace UMServer
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "UMServer", Version = "v1" });
 			});
 
+
+
 			services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 
 			services.AddSingleton<IDatabaseService, LicenseDatabaseService>();
@@ -64,8 +66,11 @@ namespace UMServer
 			}
 
 			app.ApplicationServices.GetService<IDatabaseService>()?.Initialize();
+            app.UseCors(builder => builder.AllowAnyHeader()
+.AllowAnyMethod().
+WithOrigins("http://localhost:3000"));
 
-			app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
 			app.UseRouting();
 
