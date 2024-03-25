@@ -10,11 +10,11 @@ namespace UMServer.Services
 {
     public class DbOperations<TEntity> : IDbOperations<TEntity> where TEntity : class
     {
-        private readonly MyContext _context;
+        private readonly ApplicationDBContext _context;
         private DbSet<TEntity> _dbSet;
 
 
-        public DbOperations(MyContext context)
+        public DbOperations(ApplicationDBContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();

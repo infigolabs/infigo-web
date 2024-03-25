@@ -5,10 +5,10 @@ namespace UMServer.Models
 {
     public class PremiumUser
     {
-        [ForeignKey("User")]
-        public string LicenseKey { get; set; }
+        [ForeignKey("Account")]
+        public string AccountId { get; set; }
 
-        public int PlanId { get; set; }
-        public virtual Plan Plan { get; set; }
+		[ForeignKey("Plan")]
+		public int PlanId { get; set; }
     }
 }

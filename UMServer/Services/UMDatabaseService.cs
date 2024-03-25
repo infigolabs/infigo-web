@@ -2,9 +2,9 @@
 
 namespace UMServer.Services
 {
-	public class LicenseDatabaseService : DatabaseService
+	public class UMDatabaseService : SQLiteDatabaseService
 	{		
-		public override string DatabaseFile => "ws_license_store.db";
+		public override string DatabaseFile => "user_data_store.db";
 
 		public override void Initialize()
 		{

@@ -21,7 +21,7 @@ namespace UMServer.Controllers
 		public async Task<string> StartTrial([FromBody] TrialMetadata trialMetadata)
 		{
 			//var result = mAccountService.StartTrial(trialMetadata);
-			var result =await mAccountService.StartTrials(trialMetadata);
+			var result =await mAccountService.StartTrial(trialMetadata);
 			return JsonConvert.SerializeObject(result);
 		}
 
@@ -29,7 +29,7 @@ namespace UMServer.Controllers
 		public async Task<string> GetAccountInfo(string userid)
 		{
 			//var result = mAccountService.GetAccountInfo(userid);
-			var result = await mAccountService.GetAccountInfos(userid);
+			var result = await mAccountService.GetAccountInfo(userid);
 			//var settings = new JsonSerializerSettings
 			//{
 			//	ReferenceLoopHandling = ReferenceLoopHandling.Ignore
@@ -44,11 +44,18 @@ namespace UMServer.Controllers
 			return JsonConvert.SerializeObject(result);
 		}
 
-		[HttpPost("subscription/verify")]
-		public async Task<string> VerifyLicense([FromBody] LicenseMetadata licenseMetadata)
+		[HttpPost("activate")]
+		public async Task<string> Activate([FromBody] LicenseMetadata licenseMetadata)
 		{
-            var result = await mAccountService.Validate(licenseMetadata.UserId,licenseMetadata.LicenseKey);
+            var result = await mAccountService.Activate(licenseMetadata.UserId,licenseMetadata.LicenseKey);
             return JsonConvert.SerializeObject(result);
         }
+
+		[HttpGet("deactivate")]
+		public async Task<string> Deactivate(string userid)
+		{
+			var result = await mAccountService.Deactivate(userid);
+			return JsonConvert.SerializeObject(result);
+		}
 	}
 }

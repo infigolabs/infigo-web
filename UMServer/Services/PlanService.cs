@@ -1,43 +1,98 @@
 ﻿using Common.Data;
 using Newtonsoft.Json;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
+using UMServer.Common;
 using UMServer.Models;
 
 namespace UMServer.Services
 {
-    public class PlanService : IPlanService
-    {
-        private readonly IDbOperations<Plan> _plan;
+	public class PlanService : IPlanService
+	{
+		private readonly ApplicationDBContext mDBContext;
 
-        public PlanService(IDbOperations<Plan> plan)
-        {
-            _plan = plan;
-        }
+		public PlanService(ApplicationDBContext dbContext)
+		{
+			mDBContext = dbContext;
+		}
 
-        public async Task<ApiResult> CreatePlan(Plan plan)
-        {
-           var entity=await _plan.Insert(plan);
-           var result = new ApiResult();
-            result.StatusCode = (int)StatusCodes.Success;
-            result.Data = JsonConvert.SerializeObject(entity);
-            return result;
-        }
+		public async Task<ApiResult> CreatePlan(PlanMetadata metadata)
+		{
+			var result = new ApiResult();
 
-        public async Task<ApiResult> GetPlanInfo()
-        {
-            var result = new ApiResult();
-            var users = await _plan.GetAllAsync();
-            result.StatusCode = (int)StatusCodes.Success;
-            result.Data = JsonConvert.SerializeObject(users);
-            return result;
-        }
+			try
+			{
+				Plan plan = mDBContext.Plans.FirstOrDefault(p => p.PlanId == metadata.PlanId);
+				if (plan != null)
+				{
+					throw new Exception("Plan already exist");
+				}
 
-        public async Task<ApiResult> UpdatePlan(int id, Plan plan)
-        {
-            var response = await _plan.Update(plan);
-            var result = new ApiResult();
-            result.StatusCode = (int)StatusCodes.Success;
-            return result;
-        }
-    }
+				plan = new Plan()
+				{
+					PlanId = metadata.PlanId,
+					PlanDescription = metadata.PlanDescription,
+					PlanLength = metadata.PlanLength,
+					PlanPrice = metadata.Price
+				};
+				
+				await mDBContext.AddAsync(plan);
+				await mDBContext.SaveChangesAsync();
+				result.Data = JsonConvert.SerializeObject(metadata);
+			}
+			catch (Exception ex)
+			{
+				result.StatusCode = (int)StatusCodes.CreatePlanErr;
+				result.Error = ex.Message;
+			}
+			return result;
+		}
+
+		public async Task<ApiResult> GetPlanInfo()
+		{
+			var result = new ApiResult();
+			try
+			{ 
+				result.Data = JsonConvert.SerializeObject(mDBContext.Plans);
+			}
+			catch (Exception ex)
+			{
+				result.StatusCode = (int)StatusCodes.PlanErr;
+				result.Error = ex.Message;
+			}
+			return result;
+		}
+
+		public async Task<ApiResult> UpdatePlan(PlanMetadata metadata)
+		{
+			var result = new ApiResult();
+			try
+			{
+				Plan plan = mDBContext.Plans.FirstOrDefault(p => p.PlanId == metadata.PlanId);
+				if (plan == null)
+				{
+					throw new Exception("Plan not found");
+				}
+
+				plan = new Plan()
+				{
+					PlanId = metadata.PlanId,
+					PlanDescription = metadata.PlanDescription,
+					PlanLength = metadata.PlanLength,
+					PlanPrice = metadata.Price
+				};
+
+				mDBContext.Plans.Update(plan);
+				await mDBContext.SaveChangesAsync();
+				result.Data = JsonConvert.SerializeObject(metadata);
+			}
+			catch (Exception ex)
+			{
+				result.StatusCode = (int)StatusCodes.PlanErr;
+				result.Error = ex.Message;
+			}
+			return result;
+		}
+	}
 }
