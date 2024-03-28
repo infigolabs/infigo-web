@@ -11,7 +11,7 @@ using UMServer.Common;
 namespace UMServer.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20240324083953_init")]
+    [Migration("20240327091946_init")]
     partial class init
     {
         /// <inheritdoc />

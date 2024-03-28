@@ -20,7 +20,6 @@ namespace UMServer.Controllers
 		[HttpPost("trial")]
 		public async Task<string> StartTrial([FromBody] TrialMetadata trialMetadata)
 		{
-			//var result = mAccountService.StartTrial(trialMetadata);
 			var result =await mAccountService.StartTrial(trialMetadata);
 			return JsonConvert.SerializeObject(result);
 		}
@@ -28,12 +27,7 @@ namespace UMServer.Controllers
 		[HttpGet("user/info")]
 		public async Task<string> GetAccountInfo(string userid)
 		{
-			//var result = mAccountService.GetAccountInfo(userid);
 			var result = await mAccountService.GetAccountInfo(userid);
-			//var settings = new JsonSerializerSettings
-			//{
-			//	ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-			//};
 			return JsonConvert.SerializeObject(result);
 		}
 
